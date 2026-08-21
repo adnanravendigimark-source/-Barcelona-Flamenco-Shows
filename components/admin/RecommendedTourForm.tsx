@@ -58,7 +58,8 @@ export default function RecommendedTourForm({
     });
     setSaving(false);
     if (!res.ok) {
-      setError("Save failed. Please try again.");
+      const data = await res.json().catch(() => null);
+      setError(data?.error || "Save failed. Please try again.");
       return;
     }
     setSaved(true);

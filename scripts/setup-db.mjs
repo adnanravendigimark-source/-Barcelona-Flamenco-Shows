@@ -523,15 +523,34 @@ async function seedAboutPage() {
     metaDescription:
       "Who curates our Barcelona flamenco show recommendations, how we select authentic tablaos, and why booking ahead guarantees prime seating.",
   };
+  // The live About page (app/about/page.tsx, via lib/about.ts's getAboutPage)
+  // only reads a single `content` HTML column now — the granular intro_*/
+  // reasons_*/disclosure_* columns above are legacy and unused by current
+  // code, kept only so older rows don't break. Without this, a fresh
+  // database seed would leave about_page.content empty (its NOT NULL
+  // DEFAULT '' — not NULL, so lib/about.ts's `??` fallback never kicks in)
+  // and the About page would render with no body copy at all.
+  const content = `<h2>Our Mission</h2>
+<p>${a.introParagraph1}</p>
+<p>${a.introParagraph2}</p>
+<h2>${a.reasonsHeading}</h2>
+<p>${a.reasonsSubheading}</p>
+<ul>
+${reasons.map((r) => `<li><strong>${r.title}</strong> — ${r.body}</li>`).join("\n")}
+</ul>
+<h2>${a.disclosureHeading}</h2>
+<p>${a.disclosureBody}</p>`;
   await sql`
     INSERT INTO about_page (
       id, hero_eyebrow, hero_heading, hero_subheading, hero_image, hero_image_alt,
+      content,
       intro_heading, intro_paragraph_1, intro_paragraph_2, intro_image, intro_image_alt,
       reasons_heading, reasons_subheading, reasons,
       disclosure_heading, disclosure_body, cta_text, cta_button_label,
       meta_title, meta_description
     ) VALUES (
       1, ${a.heroEyebrow}, ${a.heroHeading}, ${a.heroSubheading}, ${a.heroImage}, ${a.heroImageAlt},
+      ${content},
       ${a.introHeading}, ${a.introParagraph1}, ${a.introParagraph2}, ${a.introImage}, ${a.introImageAlt},
       ${a.reasonsHeading}, ${a.reasonsSubheading}, ${JSON.stringify(reasons)}::jsonb,
       ${a.disclosureHeading}, ${a.disclosureBody}, ${a.ctaText}, ${a.ctaButtonLabel},

@@ -282,15 +282,15 @@ export default function TourForm({
       </div>
 
       <div>
-        <label className={labelClass}>Price table: "Tasting / Drinks" column (optional)</label>
+        <label className={labelClass}>Price table: "Drinks / Dinner" column (optional)</label>
         <input
           value={tour.priceTableFeature || ""}
           onChange={(e) => update("priceTableFeature", e.target.value)}
           className={inputClass}
-          placeholder="e.g. Dutch Wine & Cheese"
+          placeholder="e.g. Tapas & Sangria"
         />
         <p className="mt-1 text-xs text-stone-500">
-          Shown in the homepage price-comparison table's "Tasting / Drinks" column for this tour. Leave
+          Shown in the homepage price-comparison table's "Drinks / Dinner" column for this tour. Leave
           blank to show "No".
         </p>
       </div>
