@@ -43,11 +43,9 @@ async function main() {
     bookNowText: "BOOK TICKETS",
     navLinks: [
       { label: "Home", href: "/" },
-      { label: "Shows", href: "/#tours" },
-      { label: "Venues", href: "/#highlights" },
-      { label: "About Flamenco", href: "/blog/what-to-expect-at-a-barcelona-flamenco-show" },
-      { label: "Blog", href: "/blog" },
       { label: "About Us", href: "/about" },
+      { label: "Blog", href: "/blog" },
+      { label: "Contact", href: "/contact" },
     ],
     ctaText: "BOOK TICKETS",
     ctaHref: "/#tours",

@@ -47,7 +47,7 @@ export default function MobileNav({
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-label={open ? "Close menu" : "Open menu"}
-        className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-slate-700 transition hover:bg-slate-100"
+        className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-stone-200 transition hover:bg-white/10"
       >
         <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" stroke="currentColor" strokeWidth={1.8}>
           {open ? (
@@ -61,18 +61,18 @@ export default function MobileNav({
       {open && (
         <>
           <div
-            className="absolute inset-x-0 top-full z-40 h-screen bg-slate-900/40 backdrop-blur-[1px]"
+            className="absolute inset-x-0 top-full z-40 h-screen bg-black/70 backdrop-blur-sm"
             aria-hidden="true"
             onClick={() => setOpen(false)}
           />
-          <div className="absolute inset-x-0 top-full z-40 max-h-[80vh] overflow-y-auto border-b border-slate-200 bg-white shadow-lg">
+          <div className="absolute inset-x-0 top-full z-40 max-h-[80vh] overflow-y-auto border-b border-white/10 bg-zinc-950 text-white shadow-2xl">
             <nav className="flex flex-col px-4 py-3">
               {navLinks.map((link) => (
                 <Link
                   key={link.href + link.label}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="border-b border-slate-100 py-3.5 text-base font-semibold text-slate-800 transition hover:text-blue-600 last:border-b-0"
+                  className="border-b border-white/[0.08] py-3.5 text-base font-semibold text-stone-200 transition hover:text-red-500 last:border-b-0"
                 >
                   {link.label}
                 </Link>
@@ -82,7 +82,7 @@ export default function MobileNav({
               <Link
                 href={ctaHref}
                 onClick={() => setOpen(false)}
-                className="block rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-600 px-5 py-3 text-center text-sm font-bold text-white shadow-md shadow-blue-600/20"
+                className="block rounded-xl bg-[#c23636] hover:bg-[#ad2828] px-5 py-3 text-center text-sm font-bold text-white shadow-md shadow-red-950/40 uppercase tracking-wider"
               >
                 {ctaText}
               </Link>
