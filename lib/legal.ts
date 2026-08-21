@@ -59,7 +59,13 @@ export async function getPrivacyPolicy(): Promise<PrivacyPolicy> {
     const row = rows[0] as any;
     return {
       title: row.title || DEFAULT_PRIVACY_POLICY.title,
-      lastUpdated: row.last_updated || DEFAULT_PRIVACY_POLICY.lastUpdated,
+      // The Neon driver can return a DATE column as a native Date object —
+      // lastUpdated is typed/rendered as a plain string (both here and on
+      // the public privacy-policy page), so a raw Date object here would
+      // throw a client-side "Objects are not valid as a React child" crash.
+      lastUpdated: row.last_updated
+        ? new Date(row.last_updated).toISOString().slice(0, 10)
+        : DEFAULT_PRIVACY_POLICY.lastUpdated,
       lastUpdatedLabel: row.last_updated_label ?? DEFAULT_PRIVACY_POLICY.lastUpdatedLabel,
       emptyStateText: row.empty_state_text ?? DEFAULT_PRIVACY_POLICY.emptyStateText,
       content: parseContent(row.content),
