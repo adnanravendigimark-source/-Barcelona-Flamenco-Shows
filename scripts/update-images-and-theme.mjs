@@ -89,18 +89,51 @@ async function main() {
   }
   console.log(`Updated ${tours.length} tours.`);
 
-  // Update posts
+  // Upsert posts
   const posts = JSON.parse(fs.readFileSync(path.join(process.cwd(), "data/posts.json"), "utf-8"));
-  for (const p of posts) {
+  for (let i = 0; i < posts.length; i++) {
+    const p = posts[i];
     await sql`
-      UPDATE posts SET
-        image = ${p.image},
-        image_alt = ${p.imageAlt},
-        content = ${JSON.stringify(p.content)}::jsonb
-      WHERE slug = ${p.slug}
+      INSERT INTO posts (
+        slug, title, meta_title, meta_description, category, excerpt,
+        quick_answer, read_time, date, author, image, image_alt,
+        recommended_tour_id, recommended_tour_after_block, content,
+        cta_heading, cta_body, cta_button_text, cta_button_href,
+        focus_keyword, sort_order
+      ) VALUES (
+        ${p.slug}, ${p.title}, ${p.metaTitle || p.title}, ${p.metaDescription || p.excerpt},
+        ${p.category}, ${p.excerpt}, ${p.quickAnswer || ""}, ${p.readTime || "5 min read"},
+        ${p.date}, ${p.author || ""}, ${p.image}, ${p.imageAlt || p.title},
+        ${p.recommendedTourId || ""}, ${p.recommendedTourAfterBlock || 3},
+        ${JSON.stringify(p.content)}::jsonb,
+        ${p.ctaHeading || "Ready to book?"}, ${p.ctaBody || ""},
+        ${p.ctaButtonText || "See Prices"}, ${p.ctaButtonHref || "/#prices"},
+        ${p.focusKeyword || ""}, ${i}
+      )
+      ON CONFLICT (slug) DO UPDATE SET
+        title = EXCLUDED.title,
+        meta_title = EXCLUDED.meta_title,
+        meta_description = EXCLUDED.meta_description,
+        category = EXCLUDED.category,
+        excerpt = EXCLUDED.excerpt,
+        quick_answer = EXCLUDED.quick_answer,
+        read_time = EXCLUDED.read_time,
+        date = EXCLUDED.date,
+        author = EXCLUDED.author,
+        image = EXCLUDED.image,
+        image_alt = EXCLUDED.image_alt,
+        recommended_tour_id = EXCLUDED.recommended_tour_id,
+        recommended_tour_after_block = EXCLUDED.recommended_tour_after_block,
+        content = EXCLUDED.content,
+        cta_heading = EXCLUDED.cta_heading,
+        cta_body = EXCLUDED.cta_body,
+        cta_button_text = EXCLUDED.cta_button_text,
+        cta_button_href = EXCLUDED.cta_button_href,
+        focus_keyword = EXCLUDED.focus_keyword,
+        sort_order = EXCLUDED.sort_order
     `;
   }
-  console.log(`Updated ${posts.length} posts.`);
+  console.log(`Upserted ${posts.length} posts.`);
 
   // Update about page
   await sql`
