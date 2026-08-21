@@ -16,7 +16,7 @@ export default async function FeaturedTour() {
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200/80 bg-white/95 px-4 py-3 shadow-[0_-8px_25px_rgba(0,0,0,0.12)] backdrop-blur-md sm:hidden">
       <div className="flex items-center gap-3">
         <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl">
-          <SafeImage src={tour.image} alt={tour.imageAlt} fill sizes="48px" className="object-cover" />
+          <SafeImage src={tour.image} alt={tour.imageAlt} fill quality={65} sizes="48px" className="object-cover" />
         </div>
         <div className="min-w-0 flex-1">
           <p className="truncate text-xs font-bold leading-tight text-slate-900">{tour.title}</p>

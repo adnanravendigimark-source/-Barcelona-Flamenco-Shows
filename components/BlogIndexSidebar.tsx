@@ -99,6 +99,7 @@ export default function BlogIndexSidebar({
                     src={post.image}
                     alt={post.imageAlt || post.title}
                     fill
+                    quality={65}
                     sizes="80px"
                     className="object-cover transition duration-300 group-hover:scale-105"
                   />

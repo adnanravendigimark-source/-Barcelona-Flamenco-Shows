@@ -117,6 +117,14 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${serifFont.variable} ${displayFont.variable} ${bodyFont.variable}`}>
       <head>
+        {/* Warms up the connection to Google's analytics domains ahead of
+            the afterInteractive gtag.js load below, shaving the DNS/TLS
+            handshake off its actual request instead of paying for it when
+            the script fires. */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         {/* Google tag (gtag.js) */}
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-SYMDM65LVH" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">

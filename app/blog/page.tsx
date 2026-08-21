@@ -41,6 +41,7 @@ export default async function BlogIndexPage() {
               alt={heroImageAlt || "Barcelona flamenco show stage at dusk"}
               fill
               priority
+              quality={68}
               sizes="100vw"
               className="object-cover object-center opacity-35"
             />

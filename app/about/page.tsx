@@ -44,6 +44,7 @@ export default async function AboutPage() {
               alt={about.heroImageAlt}
               fill
               priority
+              quality={68}
               sizes="100vw"
               className="object-cover object-center opacity-35"
             />

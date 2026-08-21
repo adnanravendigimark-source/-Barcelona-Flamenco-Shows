@@ -30,6 +30,7 @@ export default function TourCard({
           src={tour.image}
           alt={tour.imageAlt}
           fill
+          quality={70}
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           className="object-cover transition duration-500 group-hover:scale-105"
         />

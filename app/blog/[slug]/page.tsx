@@ -166,6 +166,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
                 alt={post.imageAlt || post.title}
                 fill
                 priority
+                quality={70}
                 sizes="(min-width: 1152px) 1152px, 100vw"
                 className="object-cover"
               />

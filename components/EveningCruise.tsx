@@ -45,6 +45,7 @@ export default async function EveningCruise() {
                 src={img.src}
                 alt={img.alt}
                 fill
+                quality={70}
                 sizes="(min-width: 1024px) 20vw, 45vw"
                 className="object-cover transition duration-500 group-hover:scale-110"
               />
