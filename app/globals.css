@@ -24,10 +24,10 @@ body {
 
 /* Barcelona Flamenco brand-color CSS variables — space-separated RGB triplets */
 :root {
-  --color-canal-primary: 220 38 38;   /* #dc2626 - Spanish Flamenco Passion Crimson */
-  --color-canal-blue: 245 158 11;     /* #f59e0b - Warm Andalusian Sunset Gold */
-  --color-canal-ink: 24 24 27;        /* #18181b - Midnight Velvet Charcoal / Tablao Noir */
-  --color-gold-400: 225 29 72;        /* #e11d48 - Spanish Ruby / Rose */
+  --color-canal-primary: 201 24 43;    /* #c9182b - Deep Passion Spanish Crimson */
+  --color-canal-blue: 217 119 6;       /* #d97706 - Spanish Andalusian Gold / Amber */
+  --color-canal-ink: 18 18 22;         /* #121216 - Midnight Tablao Noir */
+  --color-gold-400: 225 29 72;         /* #e11d48 - Spanish Ruby / Rose */
 }
 
 /* Shared typography for admin-entered rich text */

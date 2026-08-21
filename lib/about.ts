@@ -22,7 +22,7 @@ const DEFAULT_ABOUT: AboutPageContent = {
   heroHeading: "Your Independent Guide to Barcelona Flamenco Shows & Tickets",
   heroSubheading:
     "We help travelers discover authentic Barcelona flamenco shows, historic tablaos, and dinner packages — curated from Spain's finest venues and explained in plain language.",
-  heroImage: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=2000&auto=format&fit=crop",
+  heroImage: "/images/hero-flamenco.jpg",
   heroImageAlt: "Authentic live flamenco performance in Barcelona with passionate dancer and Spanish guitar",
   content: `<h2>Our Mission</h2>
 <p>We built this guide with a clear conviction: attending a live flamenco performance is one of the most intense, unforgettable cultural moments in Spain — but only if you choose an authentic venue. With dozens of tourist flyers and promotional booths scattered along Las Ramblas, choosing the right tablao shouldn't be confusing.</p>

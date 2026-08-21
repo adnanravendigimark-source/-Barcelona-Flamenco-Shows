@@ -8,7 +8,7 @@ export default async function PracticalInfo() {
     <section className="bg-stone-50 py-20 border-y border-stone-200/80">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 lg:grid-cols-3">
         <div className="rounded-2xl border border-stone-200/80 bg-white p-6 shadow-sm">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-canal-blue/10 text-canal-blue font-bold text-lg mb-4">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/15 text-amber-700 font-bold text-lg mb-4 border border-amber-400/20">
             ⏱
           </div>
           <h3 className="font-display text-xl font-bold text-stone-900">{s.hoursHeading}</h3>
@@ -26,12 +26,12 @@ export default async function PracticalInfo() {
         </div>
 
         <div className="rounded-2xl border border-stone-200/80 bg-white p-6 shadow-sm">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-canal-orange/10 text-canal-orange font-bold text-lg mb-4">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-500/15 text-red-700 font-bold text-lg mb-4 border border-red-400/20">
             📍
           </div>
           <h3 className="font-display text-xl font-bold text-stone-900">{s.addressHeading}</h3>
           <p className="mt-4 whitespace-pre-line text-sm leading-relaxed text-stone-600">{s.address}</p>
-          <p className="mt-3 text-xs font-medium text-canal-blue">{s.metro}</p>
+          <p className="mt-3 text-xs font-semibold text-red-600">{s.metro}</p>
         </div>
 
         <div className="rounded-2xl border border-stone-200/80 bg-white p-6 shadow-sm">

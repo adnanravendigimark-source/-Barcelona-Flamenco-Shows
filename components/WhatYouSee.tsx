@@ -62,14 +62,14 @@ export default async function WhatYouSee() {
           </div>
         )}
 
-        <div className="mt-12 flex flex-col items-start gap-4 rounded-2xl bg-gradient-to-r from-zinc-950 to-stone-900 p-8 text-white shadow-xl sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col items-start gap-4 rounded-2xl border border-amber-400/20 bg-gradient-to-r from-zinc-950 via-stone-900 to-zinc-950 p-8 text-white shadow-xl sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-lg font-bold">{s.ctaText}</p>
-            <p className="text-xs text-amber-200 mt-0.5">Daily showtimes across Las Ramblas, Gothic Quarter, El Born &amp; Montjuïc</p>
+            <p className="text-xs text-amber-300 mt-0.5 font-medium">Daily showtimes across Las Ramblas, Gothic Quarter, El Born &amp; Montjuïc</p>
           </div>
           <a
             href={s.ctaHref}
-            className="shrink-0 rounded-xl bg-gradient-to-r from-red-600 via-rose-600 to-amber-600 px-7 py-3 text-sm font-bold text-white shadow-md transition-all hover:scale-[1.02]"
+            className="shrink-0 rounded-xl border border-amber-300/30 bg-gradient-to-r from-red-600 via-rose-600 to-amber-600 px-7 py-3 text-sm font-bold text-white shadow-md shadow-red-950/40 transition-all duration-200 hover:scale-[1.03] hover:shadow-lg hover:shadow-red-600/40 hover:brightness-105 active:scale-[0.98]"
           >
             {s.ctaButtonText}
           </a>

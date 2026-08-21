@@ -15,16 +15,16 @@ export default async function RelatedPosts({ slug }: { slug: string }) {
           <Link
             key={post.slug}
             href={`/blog/${post.slug}`}
-            className="group flex gap-4 rounded-2xl border border-stone-200/80 bg-white p-4 transition-all hover:border-canal-blue/40 hover:shadow-lg"
+            className="group flex gap-4 rounded-2xl border border-stone-200/80 bg-white p-4 transition-all hover:border-red-400/50 hover:shadow-lg"
           >
             <div className="relative h-20 w-24 shrink-0 overflow-hidden rounded-xl">
               <SafeImage src={post.image} alt={post.imageAlt} fill sizes="100px" className="object-cover transition group-hover:scale-105" />
             </div>
             <div className="flex flex-col justify-center">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-canal-blue">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-red-600">
                 {post.category}
               </span>
-              <p className="mt-1 text-sm font-bold text-stone-900 group-hover:text-canal-orange transition-colors">
+              <p className="mt-1 text-sm font-bold text-stone-900 group-hover:text-red-600 transition-colors">
                 {post.title}
               </p>
             </div>

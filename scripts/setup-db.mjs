@@ -503,14 +503,14 @@ async function seedAboutPage() {
     heroHeading: "Your Independent Guide to Barcelona Flamenco Shows & Tickets",
     heroSubheading:
       "We help travelers discover authentic Barcelona flamenco shows, historic tablaos, and dinner packages — curated from Spain's finest venues and explained in plain language.",
-    heroImage: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=2000&auto=format&fit=crop",
+    heroImage: "/images/hero-flamenco.jpg",
     heroImageAlt: "Authentic live flamenco performance in Barcelona with passionate dancer and Spanish guitar",
     introHeading: "Why We Built a Barcelona Flamenco Guide",
     introParagraph1:
       "Attending an authentic live flamenco performance is one of the most intense, unforgettable cultural moments in Spain — but only if you choose the right venue. Finding genuine masters among dozens of tourist brochures shouldn't be confusing.",
     introParagraph2:
       "We are an independent Barcelona flamenco guide. We compare world-renowned institutions like Tablao Cordobes, historic theater performances at Teatro City Hall, intimate Gothic Quarter tablaos like Los Tarantos, and full dinner experiences like Tablao de Carmen.",
-    introImage: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=1000&auto=format&fit=crop",
+    introImage: "/images/spanish-guitar.jpg",
     introImageAlt: "Spanish guitar and live flamenco performance on stage in Barcelona",
     reasonsHeading: "How We Select Our Featured Flamenco Shows",
     reasonsSubheading: "Every tablao listed on this site is screened against four strict criteria before it earns a spot.",

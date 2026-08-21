@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
+import { Outfit, Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
 import { SITE_URL } from "@/lib/site";
 import { resolveRobots } from "@/lib/seo";
 import { getSiteChrome } from "@/lib/homepage";
@@ -8,6 +8,12 @@ import { hexToRgbTriplet } from "@/lib/color";
 import "./globals.css";
 
 export const dynamic = "force-dynamic";
+
+const serifFont = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "800", "900"],
+  variable: "--font-serif",
+});
 
 const displayFont = Outfit({
   subsets: ["latin"],
@@ -109,7 +115,7 @@ export default async function RootLayout({
   const themeStyle = buildThemeStyle(theme);
 
   return (
-    <html lang="en" className={`${displayFont.variable} ${bodyFont.variable}`}>
+    <html lang="en" className={`${serifFont.variable} ${displayFont.variable} ${bodyFont.variable}`}>
       <head>
         {/* Google tag (gtag.js) */}
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-SYMDM65LVH" strategy="afterInteractive" />

@@ -94,7 +94,7 @@ export default function TourCard({
                 href={tour.href}
                 target="_blank"
                 rel="noopener nofollow sponsored"
-                className="flex shrink-0 items-center gap-1.5 rounded-xl bg-gradient-to-r from-red-600 via-rose-600 to-amber-600 px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-red-600/25 transition hover:scale-[1.02] hover:shadow-red-600/40"
+                className="flex shrink-0 items-center gap-1.5 rounded-xl border border-amber-300/30 bg-gradient-to-r from-red-600 via-rose-600 to-amber-600 px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-red-900/30 transition-all duration-200 hover:scale-[1.03] hover:shadow-lg hover:shadow-red-600/40 hover:brightness-105 active:scale-[0.98]"
               >
                 {bookNowText}
               </a>
@@ -117,7 +117,7 @@ export default function TourCard({
                 href={tour.href}
                 target="_blank"
                 rel="noopener nofollow sponsored"
-                className="flex shrink-0 items-center gap-1.5 rounded-xl bg-stone-900 px-5 py-2.5 text-sm font-bold text-white shadow-md transition hover:bg-red-600 hover:scale-[1.02]"
+                className="flex shrink-0 items-center gap-1.5 rounded-xl border border-zinc-700/50 bg-zinc-900 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition-all duration-200 hover:bg-gradient-to-r hover:from-red-600 hover:to-rose-600 hover:border-amber-400/30 hover:shadow-md hover:shadow-red-900/30 hover:scale-[1.02] active:scale-[0.98]"
               >
                 {bookNowText}
               </a>

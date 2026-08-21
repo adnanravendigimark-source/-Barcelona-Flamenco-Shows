@@ -49,7 +49,7 @@ export default async function PriceComparison() {
                     href={tour.href}
                     target="_blank"
                     rel="noopener nofollow sponsored"
-                    className="inline-flex rounded-xl bg-gradient-to-r from-red-600 via-rose-600 to-amber-600 px-4 py-2 text-xs font-bold text-white shadow-sm transition hover:scale-[1.02]"
+                    className="inline-flex rounded-xl border border-amber-300/30 bg-gradient-to-r from-red-600 via-rose-600 to-amber-600 px-4 py-2 text-xs font-bold text-white shadow-sm shadow-red-900/20 transition-all duration-200 hover:scale-[1.03] hover:shadow-md hover:shadow-red-600/30 hover:brightness-105 active:scale-[0.98]"
                   >
                     {s.bookLabel}
                   </a>

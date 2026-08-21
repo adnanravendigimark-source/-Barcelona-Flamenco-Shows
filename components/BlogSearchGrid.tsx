@@ -103,12 +103,12 @@ export default function BlogSearchGrid({
               id="sort-select"
               value={sortOrder}
               onChange={(e) => setSortOrder(e.target.value as "newest" | "oldest")}
-              className="appearance-none rounded-lg border border-stone-300 bg-white py-1.5 pl-3 pr-8 text-xs font-semibold text-slate-800 shadow-sm transition hover:border-canal-blue focus:border-canal-blue focus:outline-none cursor-pointer"
+              className="appearance-none rounded-lg border border-stone-300 bg-white py-1.5 pl-3 pr-8 text-xs font-semibold text-stone-800 shadow-sm transition hover:border-red-600 focus:border-red-600 focus:outline-none cursor-pointer"
             >
               <option value="newest">Newest First</option>
               <option value="oldest">Oldest First</option>
             </select>
-            <span className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-slate-500">
+            <span className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-stone-500">
               ▾
             </span>
           </div>
@@ -117,7 +117,7 @@ export default function BlogSearchGrid({
 
       {/* Grid */}
       {sortedPosts.length === 0 ? (
-        <div className="mt-8 rounded-2xl border border-dashed border-stone-300 p-12 text-center text-sm text-slate-600">
+        <div className="mt-8 rounded-2xl border border-dashed border-stone-300 p-12 text-center text-sm text-stone-600">
           No articles found matching your criteria.
         </div>
       ) : (
@@ -126,7 +126,7 @@ export default function BlogSearchGrid({
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="group flex flex-col overflow-hidden rounded-2xl border border-stone-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-canal-blue/40 hover:shadow-md"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-stone-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-red-400/50 hover:shadow-md"
             >
               <div className="relative aspect-[16/10] overflow-hidden bg-stone-100">
                 <SafeImage
@@ -141,36 +141,36 @@ export default function BlogSearchGrid({
               <div className="flex flex-1 flex-col p-5">
                 {/* Category Pill */}
                 <div className="mb-2.5">
-                  <span className="inline-block rounded-md bg-blue-50 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-blue-600">
+                  <span className="inline-block rounded-md bg-red-50 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-red-600 border border-red-100">
                     {post.category}
                   </span>
                 </div>
 
                 {/* Date and Read Time */}
-                <div className="flex items-center gap-3 text-[11px] font-medium text-slate-500">
+                <div className="flex items-center gap-3 text-[11px] font-medium text-stone-500">
                   <span className="inline-flex items-center gap-1">
-                    <CalendarIcon className="h-3.5 w-3.5 text-canal-blue" />
+                    <CalendarIcon className="h-3.5 w-3.5 text-red-600" />
                     {formatDate(post.date)}
                   </span>
                   <span className="inline-flex items-center gap-1">
-                    <ClockPayIcon className="h-3.5 w-3.5 text-canal-blue" />
+                    <ClockPayIcon className="h-3.5 w-3.5 text-red-600" />
                     {post.readTime}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h2 className="mt-2.5 line-clamp-2 font-display text-[15px] font-bold leading-snug text-slate-900 transition-colors group-hover:text-blue-600">
+                <h2 className="mt-2.5 line-clamp-2 font-display text-[15px] font-bold leading-snug text-zinc-900 transition-colors group-hover:text-red-600">
                   {post.title}
                 </h2>
 
                 {/* Excerpt */}
-                <p className="mt-2 line-clamp-2 flex-1 text-xs leading-relaxed text-slate-600">
+                <p className="mt-2 line-clamp-2 flex-1 text-xs leading-relaxed text-stone-600">
                   {post.excerpt}
                 </p>
 
                 {/* Read More link */}
                 <div className="mt-4 pt-2">
-                  <span className="inline-flex items-center gap-1 text-xs font-bold text-slate-900 transition group-hover:text-blue-600">
+                  <span className="inline-flex items-center gap-1 text-xs font-bold text-zinc-900 transition group-hover:text-red-600">
                     Read More <span className="transition-transform group-hover:translate-x-1">→</span>
                   </span>
                 </div>
@@ -188,7 +188,7 @@ export default function BlogSearchGrid({
             onClick={() => goTo(currentPage - 1)}
             disabled={currentPage === 1}
             aria-label="Previous page"
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-stone-300 bg-white text-xs font-bold text-slate-700 transition hover:border-canal-blue disabled:opacity-30 disabled:hover:border-stone-300"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-stone-300 bg-white text-xs font-bold text-stone-700 transition hover:border-red-600 disabled:opacity-30 disabled:hover:border-stone-300"
           >
             ‹
           </button>
@@ -203,7 +203,7 @@ export default function BlogSearchGrid({
             ) {
               if (p === 2 || p === totalPages - 1) {
                 return (
-                  <span key={p} className="px-1 text-xs text-slate-400">
+                  <span key={p} className="px-1 text-xs text-stone-400">
                     ...
                   </span>
                 );
@@ -219,8 +219,8 @@ export default function BlogSearchGrid({
                 aria-current={p === currentPage ? "page" : undefined}
                 className={`flex h-9 w-9 items-center justify-center rounded-lg text-xs font-bold transition ${
                   p === currentPage
-                    ? "bg-canal-blue text-white shadow-sm"
-                    : "border border-stone-300 bg-white text-slate-700 hover:border-canal-blue"
+                    ? "bg-gradient-to-r from-red-600 to-rose-600 text-white shadow-sm"
+                    : "border border-stone-300 bg-white text-stone-700 hover:border-red-600"
                 }`}
               >
                 {p}
@@ -233,7 +233,7 @@ export default function BlogSearchGrid({
             onClick={() => goTo(currentPage + 1)}
             disabled={currentPage === totalPages}
             aria-label="Next page"
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-stone-300 bg-white text-xs font-bold text-slate-700 transition hover:border-canal-blue disabled:opacity-30 disabled:hover:border-stone-300"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-stone-300 bg-white text-xs font-bold text-stone-700 transition hover:border-red-600 disabled:opacity-30 disabled:hover:border-stone-300"
           >
             ›
           </button>

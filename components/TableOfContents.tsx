@@ -11,16 +11,16 @@ export default function TableOfContents({
   if (sections.length < 2) return null;
 
   return (
-    <div className="mt-8 rounded-2xl border border-sky-200/80 bg-sky-50/50 p-6">
-      <p className="text-xs font-bold uppercase tracking-widest text-canal-blue">{label}</p>
+    <div className="mt-8 rounded-2xl border border-red-200/80 bg-gradient-to-br from-red-50/60 via-amber-50/30 to-white p-6 shadow-sm">
+      <p className="text-xs font-bold uppercase tracking-widest text-red-600"> flamenco • {label}</p>
       <ul className="mt-3.5 space-y-2.5 text-sm">
         {sections.map((item) => (
           <li key={item.id}>
             <a
               href={`#${item.id}`}
-              className="flex items-center gap-2 font-medium text-stone-700 transition hover:text-canal-orange hover:translate-x-0.5"
+              className="flex items-center gap-2 font-medium text-stone-700 transition hover:text-red-600 hover:translate-x-0.5"
             >
-              <span aria-hidden="true" className="text-canal-blue font-bold">
+              <span aria-hidden="true" className="text-red-600 font-bold">
                 ›
               </span>
               {item.text}

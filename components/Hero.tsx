@@ -1,100 +1,86 @@
-import Image from "next/image";
 import SafeImage from "./SafeImage";
 import { getHomepageContent } from "@/lib/homepage";
 
 export default async function Hero() {
   const content = await getHomepageContent();
-  const gallery = content.heroGallery;
+
   return (
     <section
       id="top"
-      className="relative flex min-h-[calc(100dvh-4rem)] flex-col justify-center overflow-hidden bg-zinc-950 text-white"
+      className="relative flex min-h-[calc(100dvh-5rem)] items-center overflow-hidden bg-black text-white"
     >
+      {/* Background Image & Cinematic Gradient */}
       <div className="absolute inset-0">
         {content.heroVideo ? (
           // eslint-disable-next-line jsx-a11y/media-has-caption
           <video
             src={content.heroVideo}
-            poster={content.heroImage || undefined}
+            poster={content.heroImage || "/images/hero-flamenco.jpg"}
             autoPlay
             muted
             loop
             playsInline
-            className="absolute inset-0 h-full w-full object-cover object-center"
+            className="absolute inset-0 h-full w-full object-cover object-right md:object-center"
           />
         ) : (
           <SafeImage
-            src={content.heroImage}
-            alt={content.heroImageAlt}
+            src={content.heroImage || "/images/hero-flamenco.jpg"}
+            alt={content.heroImageAlt || "Live Flamenco in Barcelona"}
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center"
+            className="object-cover object-right md:object-center"
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/80 to-zinc-950/40" />
-        <div className="absolute inset-0 bg-mosaic mix-blend-soft-light" aria-hidden="true" />
+
+        {/* Dark moody left-vignette gradient ensuring high text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 via-35% to-transparent sm:via-black/80 sm:via-45%" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30" />
       </div>
 
-      <div className="relative mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
-        <div className="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-500/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-amber-200 backdrop-blur-md shadow-sm">
-          <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />
-          {content.heroBadge}
-        </div>
+      {/* Hero Content */}
+      <div className="relative mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+        <div className="max-w-2xl">
+          {/* Eyebrow */}
+          <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-[#c93b3b] mb-4">
+            {content.heroBadge || "BARCELONA FLAMENCO SHOWS"}
+          </p>
 
-        <h1 className="mt-5 max-w-3xl font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.15] tracking-tight drop-shadow-sm">
-          {content.heroHeading}
-        </h1>
-        <div
-          className="rich-content rich-content-invert mt-4 max-w-2xl text-base text-stone-200 drop-shadow-sm sm:text-lg leading-relaxed"
-          dangerouslySetInnerHTML={{ __html: content.heroSubheading }}
-        />
+          {/* Headline */}
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.85rem] font-bold leading-[1.08] tracking-tight text-white">
+            Feel the Passion.
+            <br />
+            <span className="text-[#c93b3b]">
+              Live Flamenco
+              <br />
+              in Barcelona.
+            </span>
+          </h1>
 
-        <div className="mt-8 flex flex-wrap items-center gap-4">
-          <a
-            href={content.heroCtaPrimaryHref}
-            className="group inline-flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-red-600 via-rose-600 to-amber-600 px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-red-900/40 transition-all duration-200 hover:scale-[1.02] hover:shadow-red-600/40"
-          >
-            {content.heroCtaPrimaryText}
-            <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
-          </a>
-          <a
-            href={content.heroCtaSecondaryHref}
-            className="rounded-xl border border-white/25 bg-white/10 px-6 py-3.5 text-sm font-bold text-white backdrop-blur-md transition hover:bg-white/20"
-          >
-            {content.heroCtaSecondaryText}
-          </a>
+          {/* Subheading */}
+          <p className="mt-5 text-sm sm:text-base leading-relaxed text-stone-300 max-w-lg">
+            Experience the soul of Spain with authentic Flamenco shows in the heart of Barcelona.
+            Intimate venues, world-class artists, unforgettable memories.
+          </p>
 
-          <div className="ml-auto flex items-center gap-3.5 rounded-2xl border border-white/20 bg-white/10 px-5 py-3 backdrop-blur-md shadow-lg shadow-black/10">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-400/20 text-xl text-amber-300">
-              ★
-            </div>
-            <div className="text-left leading-tight">
-              <p className="text-base font-bold text-white">{content.ratingValue}</p>
-              <p className="text-xs text-stone-300">{content.ratingCount}</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
-          {gallery.map((img, i) => (
-            <div
-              key={img.label + i}
-              className="group relative h-24 overflow-hidden rounded-2xl border border-white/15 shadow-xl shadow-black/20 sm:h-28 lg:h-32 transition-transform duration-300 hover:scale-[1.03]"
+          {/* Buttons Row */}
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <a
+              href={content.heroCtaPrimaryHref || "#tours"}
+              className="inline-flex items-center gap-2 rounded-xl bg-[#c23636] hover:bg-[#ad2828] px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-red-950/60 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
             >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                sizes="(min-width: 640px) 25vw, 50vw"
-                className="object-cover transition duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              <span className="absolute bottom-2.5 left-3 text-xs font-bold text-white drop-shadow">
-                {img.label}
-              </span>
-            </div>
-          ))}
+              <span>{content.heroCtaPrimaryText || "Explore Shows"}</span>
+              <span>→</span>
+            </a>
+
+            <a
+              href={content.heroCtaSecondaryHref || "#prices"}
+              className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-black/40 hover:bg-white/10 px-7 py-3.5 text-sm font-bold text-white backdrop-blur-sm transition-all duration-200 hover:border-white/50 hover:scale-[1.02] active:scale-[0.98]"
+            >
+              <span>{content.heroCtaSecondaryText || "See Prices"}</span>
+              <span>→</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>

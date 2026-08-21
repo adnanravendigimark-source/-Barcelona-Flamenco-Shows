@@ -37,18 +37,18 @@ export default function BlogIndexSidebar({
   return (
     <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
       {/* Search Widget */}
-      <div className="flex rounded-xl border border-stone-300 bg-white overflow-hidden shadow-sm focus-within:border-canal-blue">
+      <div className="flex rounded-xl border border-stone-300 bg-white overflow-hidden shadow-sm focus-within:border-red-600">
         <input
           type="text"
           value={searchQuery || ""}
           onChange={(e) => onSearchChange && onSearchChange(e.target.value)}
           placeholder="Search articles..."
-          className="w-full bg-transparent px-3.5 py-2.5 text-xs text-slate-800 placeholder-slate-400 focus:outline-none"
+          className="w-full bg-transparent px-3.5 py-2.5 text-xs text-stone-800 placeholder-stone-400 focus:outline-none"
         />
         <button
           type="button"
           aria-label="Search"
-          className="flex items-center justify-center bg-canal-blue px-3.5 text-white transition hover:opacity-90"
+          className="flex items-center justify-center bg-gradient-to-r from-red-600 to-rose-600 px-3.5 text-white transition hover:brightness-110"
         >
           <SearchIcon className="h-4 w-4" />
         </button>
@@ -57,7 +57,7 @@ export default function BlogIndexSidebar({
       {/* Categories Widget */}
       {categories.length > 0 && (
         <div className="rounded-2xl border border-stone-200/80 bg-white p-5 shadow-sm">
-          <p className="font-display text-base font-bold text-slate-900">Categories</p>
+          <p className="font-display text-base font-bold text-zinc-900">Categories</p>
           <div className="mt-3.5 space-y-1">
             {categories.map((cat) => {
               const isSelected = selectedCategory?.toLowerCase() === cat.name.toLowerCase();
@@ -68,12 +68,12 @@ export default function BlogIndexSidebar({
                   onClick={() => onSelectCategory && onSelectCategory(isSelected ? "All" : cat.name)}
                   className={`flex w-full items-center justify-between rounded-lg px-2.5 py-2 text-xs font-semibold transition ${
                     isSelected
-                      ? "bg-blue-50 text-blue-700 font-bold"
-                      : "text-slate-700 hover:bg-stone-100 hover:text-blue-600"
+                      ? "bg-red-50 text-red-700 font-bold border border-red-200/60"
+                      : "text-stone-700 hover:bg-stone-100 hover:text-red-600"
                   }`}
                 >
                   <span>{cat.name}</span>
-                  <span className="flex h-5 min-w-[20px] items-center justify-center rounded-full bg-stone-100 px-1.5 text-[10px] font-bold text-slate-700">
+                  <span className="flex h-5 min-w-[20px] items-center justify-center rounded-full bg-stone-100 px-1.5 text-[10px] font-bold text-stone-700">
                     {cat.count}
                   </span>
                 </button>
@@ -86,7 +86,7 @@ export default function BlogIndexSidebar({
       {/* Popular Articles Widget */}
       {popular.length > 0 && (
         <div className="rounded-2xl border border-stone-200/80 bg-white p-5 shadow-sm">
-          <p className="font-display text-base font-bold text-slate-900">Popular Articles</p>
+          <p className="font-display text-base font-bold text-zinc-900">Popular Articles</p>
           <div className="mt-4 space-y-3.5">
             {popular.map((post) => (
               <Link
@@ -104,11 +104,11 @@ export default function BlogIndexSidebar({
                   />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="line-clamp-2 text-xs font-bold leading-snug text-slate-900 transition-colors group-hover:text-blue-600">
+                  <p className="line-clamp-2 text-xs font-bold leading-snug text-zinc-900 transition-colors group-hover:text-red-600">
                     {post.title}
                   </p>
-                  <p className="mt-1 flex items-center gap-1 text-[11px] text-slate-500 font-medium">
-                    <CalendarIcon className="h-3 w-3 text-canal-blue" />
+                  <p className="mt-1 flex items-center gap-1 text-[11px] text-stone-500 font-medium">
+                    <CalendarIcon className="h-3 w-3 text-red-600" />
                     {formatDate(post.date)}
                   </p>
                 </div>
@@ -119,15 +119,15 @@ export default function BlogIndexSidebar({
       )}
 
       {/* Book Your Barcelona Flamenco Show Promo Card */}
-      <div className="relative overflow-hidden rounded-2xl border border-stone-200/80 bg-gradient-to-br from-sky-50/60 via-white to-blue-50/40 p-6 text-center shadow-sm">
-        <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-canal-blue">
+      <div className="relative overflow-hidden rounded-2xl border border-amber-400/30 bg-gradient-to-br from-red-50/70 via-white to-amber-50/40 p-6 text-center shadow-sm">
+        <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-red-50 text-red-600 border border-red-100">
           <TicketIcon className="h-5 w-5" />
         </div>
-        <p className="mt-3.5 font-display text-base font-bold text-slate-900">{ctaHeading}</p>
-        <p className="mt-1.5 text-xs leading-relaxed text-slate-600">{ctaBody}</p>
+        <p className="mt-3.5 font-display text-base font-bold text-zinc-900">{ctaHeading}</p>
+        <p className="mt-1.5 text-xs leading-relaxed text-stone-600">{ctaBody}</p>
         <a
           href="/#tours"
-          className="mt-4 inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-600 px-5 py-2.5 text-xs font-bold text-white shadow-sm transition hover:scale-[1.02]"
+          className="mt-4 inline-flex items-center gap-1.5 rounded-xl border border-amber-300/30 bg-gradient-to-r from-red-600 via-rose-600 to-amber-600 px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-red-900/20 transition-all duration-200 hover:scale-[1.03] hover:shadow-lg hover:shadow-red-600/30 active:scale-[0.98]"
         >
           {ctaButtonText}
         </a>
