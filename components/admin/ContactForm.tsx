@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import IconPicker from "./IconPicker";
 import SeoFieldsCard from "./SeoFieldsCard";
 import RichTextEditor from "./RichTextEditor";
+import SaveBar from "./SaveBar";
 import type { ContactPageContent, ContactReason } from "@/lib/contact";
 
 const inputClass =
@@ -53,6 +54,14 @@ export default function ContactForm({ initial }: { initial: ContactPageContent }
 
   function removeReason(i: number) {
     update("reasons", contact.reasons.filter((_, idx) => idx !== i));
+  }
+
+  const dirty = useMemo(() => JSON.stringify(contact) !== JSON.stringify(initial), [contact, initial]);
+
+  function handleCancel() {
+    if (dirty && !window.confirm("Discard unsaved changes?")) return;
+    setContact(initial);
+    setError("");
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -185,15 +194,7 @@ export default function ContactForm({ initial }: { initial: ContactPageContent }
         }}
       />
 
-      <div className="border-t border-stone-200 pt-5">
-        <button
-          type="submit"
-          disabled={saving}
-          className="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-60"
-        >
-          {saving ? "Saving…" : "Save Changes"}
-        </button>
-      </div>
+      <SaveBar saving={saving} disabled={!dirty} onCancel={handleCancel} />
     </form>
   );
 }

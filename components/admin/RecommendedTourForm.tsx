@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import SaveBar from "./SaveBar";
 import type { HomepageContent } from "@/lib/homepage";
 import type { Tour } from "@/lib/data";
 
@@ -45,6 +46,14 @@ export default function RecommendedTourForm({
       "featuredReasons",
       content.featuredReasons.filter((_, idx) => idx !== i)
     );
+  }
+
+  const dirty = useMemo(() => JSON.stringify(content) !== JSON.stringify(initial), [content, initial]);
+
+  function handleCancel() {
+    if (dirty && !window.confirm("Discard unsaved changes?")) return;
+    setContent(initial);
+    setError("");
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -150,15 +159,7 @@ export default function RecommendedTourForm({
         </button>
       </div>
 
-      <div className="border-t border-stone-200 pt-5">
-        <button
-          type="submit"
-          disabled={saving}
-          className="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-60"
-        >
-          {saving ? "Saving…" : "Save Changes"}
-        </button>
-      </div>
+      <SaveBar saving={saving} disabled={!dirty} onCancel={handleCancel} />
     </form>
   );
 }

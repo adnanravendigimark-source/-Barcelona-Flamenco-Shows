@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import SeoFieldsCard from "./SeoFieldsCard";
 import RichTextEditor from "./RichTextEditor";
+import SaveBar from "./SaveBar";
 import type { ContentBlock, ContentBlockType } from "@/lib/posts";
 import type { PrivacyPolicy } from "@/lib/legal";
 
@@ -46,6 +47,14 @@ export default function PrivacyPolicyForm({ initial }: { initial: PrivacyPolicy 
     const next = [...policy.content];
     [next[i], next[j]] = [next[j], next[i]];
     update("content", next);
+  }
+
+  const dirty = useMemo(() => JSON.stringify(policy) !== JSON.stringify(initial), [policy, initial]);
+
+  function handleCancel() {
+    if (dirty && !window.confirm("Discard unsaved changes?")) return;
+    setPolicy(initial);
+    setError("");
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -186,15 +195,7 @@ export default function PrivacyPolicyForm({ initial }: { initial: PrivacyPolicy 
         onChange={(patch) => setPolicy((p) => ({ ...p, ...patch }))}
       />
 
-      <div className="flex gap-3">
-        <button
-          type="submit"
-          disabled={saving}
-          className="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-60"
-        >
-          {saving ? "Saving…" : "Save Changes"}
-        </button>
-      </div>
+      <SaveBar saving={saving} disabled={!dirty} onCancel={handleCancel} />
     </form>
   );
 }

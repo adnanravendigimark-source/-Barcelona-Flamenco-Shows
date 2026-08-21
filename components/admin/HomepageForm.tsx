@@ -10,6 +10,7 @@ import RepeatableList from "./RepeatableList";
 import SeoPreview from "./SeoPreview";
 import CharCounter from "./CharCounter";
 import ColorField from "./ColorField";
+import SaveBar from "./SaveBar";
 import type {
   HomepageContent,
   NavLink,
@@ -141,6 +142,14 @@ export default function HomepageForm({ initial, tours }: { initial: HomepageCont
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({
     [CONTENT_SECTIONS[0].id]: true,
   });
+
+  const dirty = useMemo(() => JSON.stringify(content) !== JSON.stringify(initial), [content, initial]);
+
+  function handleCancel() {
+    if (dirty && !window.confirm("Discard unsaved changes?")) return;
+    setContent(initial);
+    setError("");
+  }
 
   function toggleSection(id: string) {
     setOpenSections((s) => ({ ...s, [id]: !s[id] }));
@@ -274,7 +283,7 @@ export default function HomepageForm({ initial, tours }: { initial: HomepageCont
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5 pb-24">
+    <form onSubmit={handleSubmit} className="space-y-5">
       {/* Tab bar */}
       <div className="flex flex-wrap gap-1 rounded-2xl border border-stone-200 bg-white p-1.5">
         {TABS.map((tab) => (
@@ -1078,18 +1087,12 @@ export default function HomepageForm({ initial, tours }: { initial: HomepageCont
         </div>
       )}
 
-      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-stone-200 bg-white/95 px-4 py-3 backdrop-blur sm:pl-[17rem]">
-        <div className="mx-auto flex max-w-4xl items-center justify-between">
-          <p className="text-xs text-stone-500">Changes save across all tabs at once.</p>
-          <button
-            type="submit"
-            disabled={saving}
-            className="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-60"
-          >
-            {saving ? "Saving…" : "Save Changes"}
-          </button>
-        </div>
-      </div>
+      <SaveBar
+        saving={saving}
+        disabled={!dirty}
+        onCancel={handleCancel}
+        note="Changes save across all tabs at once."
+      />
     </form>
   );
 }

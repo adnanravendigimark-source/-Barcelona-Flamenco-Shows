@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import ImageUploadField from "./ImageUploadField";
 import SeoFieldsCard from "./SeoFieldsCard";
 import RichTextEditor from "./RichTextEditor";
 import TiptapArticleEditor from "./TiptapArticleEditor";
+import SaveBar from "./SaveBar";
 import type { AboutPageContent } from "@/lib/about";
 
 const inputClass =
@@ -40,6 +41,14 @@ export default function AboutForm({ initial }: { initial: AboutPageContent }) {
   function update<K extends keyof AboutPageContent>(key: K, value: AboutPageContent[K]) {
     setAbout((a) => ({ ...a, [key]: value }));
     setSaved(false);
+  }
+
+  const dirty = useMemo(() => JSON.stringify(about) !== JSON.stringify(initial), [about, initial]);
+
+  function handleCancel() {
+    if (dirty && !window.confirm("Discard unsaved changes?")) return;
+    setAbout(initial);
+    setError("");
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -115,15 +124,7 @@ export default function AboutForm({ initial }: { initial: AboutPageContent }) {
         }}
       />
 
-      <div className="border-t border-stone-200 pt-5">
-        <button
-          type="submit"
-          disabled={saving}
-          className="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-60"
-        >
-          {saving ? "Saving…" : "Save Changes"}
-        </button>
-      </div>
+      <SaveBar saving={saving} disabled={!dirty} onCancel={handleCancel} />
     </form>
   );
 }

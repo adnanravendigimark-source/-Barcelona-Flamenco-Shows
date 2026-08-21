@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import ImageUploadField from "./ImageUploadField";
 import TiptapArticleEditor from "./TiptapArticleEditor";
+import SaveBar from "./SaveBar";
 import SeoFieldsCard from "./SeoFieldsCard";
 import SeoPreview from "./SeoPreview";
 import SocialPreview from "./SocialPreview";
@@ -186,7 +187,7 @@ export default function PostForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="pb-24">
+    <form onSubmit={handleSubmit}>
       <div className="mx-auto max-w-4xl space-y-5">
         {/* Tab bar — sticky so it (and the "View Post" shortcut) stay
             reachable while scrolling a long article instead of only
@@ -479,24 +480,14 @@ export default function PostForm({
             </SectionCard>
           </div>
         )}
-      </div>
 
-      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-stone-200 bg-white/95 px-4 py-3 backdrop-blur sm:pl-[17rem]">
-        <div className="mx-auto flex max-w-4xl items-center justify-between gap-3">
-          <p className="text-xs text-stone-500">{dirty ? "Unsaved changes" : "All changes saved"}</p>
-          <div className="flex gap-3">
-            <button type="button" onClick={handleCancel} className="rounded-lg border border-stone-300 bg-white px-5 py-2.5 text-sm font-semibold text-stone-900 transition hover:bg-stone-100">
-              Cancel
-            </button>
-            <button
-              type="submit"
-              disabled={saving}
-              className="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-60"
-            >
-              {saving ? "Saving…" : isNew ? "Publish Post" : "Save Changes"}
-            </button>
-          </div>
-        </div>
+        <SaveBar
+          saving={saving}
+          disabled={!dirty}
+          label={isNew ? "Publish Post" : "Save Changes"}
+          onCancel={handleCancel}
+          note={dirty ? "Unsaved changes" : "All changes saved"}
+        />
       </div>
     </form>
   );

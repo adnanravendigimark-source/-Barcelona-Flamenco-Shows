@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import ImageUploadField from "./ImageUploadField";
 import RichTextEditor from "./RichTextEditor";
+import SaveBar from "./SaveBar";
 import { useToast } from "./Toast";
 import type { TourRecord, TourType } from "@/lib/data";
 
@@ -305,22 +306,7 @@ export default function TourForm({
         Featured (shown in homepage rich-result data)
       </label>
 
-      <div className="flex gap-3 border-t border-stone-200 pt-5">
-        <button
-          type="submit"
-          disabled={saving}
-          className="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-60"
-        >
-          {saving ? "Saving…" : isNew ? "Create Tour" : "Save Changes"}
-        </button>
-        <button
-          type="button"
-          onClick={handleCancel}
-          className="rounded-lg border border-stone-300 bg-white px-5 py-2.5 text-sm font-semibold text-stone-900 transition hover:bg-stone-100"
-        >
-          Cancel
-        </button>
-      </div>
+      <SaveBar saving={saving} disabled={!dirty} label={isNew ? "Create Tour" : "Save Changes"} onCancel={handleCancel} />
     </form>
   );
 }

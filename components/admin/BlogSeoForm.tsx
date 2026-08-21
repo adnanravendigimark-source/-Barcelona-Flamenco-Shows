@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import SeoFieldsCard from "./SeoFieldsCard";
+import SaveBar from "./SaveBar";
 import type { BlogSeoSettings } from "@/lib/settings";
 
 export default function BlogSeoForm({ initial }: { initial: BlogSeoSettings }) {
@@ -11,6 +12,14 @@ export default function BlogSeoForm({ initial }: { initial: BlogSeoSettings }) {
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState("");
+
+  const dirty = useMemo(() => JSON.stringify(settings) !== JSON.stringify(initial), [settings, initial]);
+
+  function handleCancel() {
+    if (dirty && !window.confirm("Discard unsaved changes?")) return;
+    setSettings(initial);
+    setError("");
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -46,15 +55,7 @@ export default function BlogSeoForm({ initial }: { initial: BlogSeoSettings }) {
         }}
       />
 
-      <div className="border-t border-stone-200 pt-5">
-        <button
-          type="submit"
-          disabled={saving}
-          className="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-60"
-        >
-          {saving ? "Saving…" : "Save Changes"}
-        </button>
-      </div>
+      <SaveBar saving={saving} disabled={!dirty} onCancel={handleCancel} />
     </form>
   );
 }

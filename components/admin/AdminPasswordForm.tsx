@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import PasswordStrengthField, { calcStrength } from "./PasswordStrengthField";
+import SaveBar from "./SaveBar";
 
 const inputClass =
   "w-full rounded-lg border border-stone-300 px-3 py-2 pr-10 text-sm focus:border-canal-blue focus:outline-none focus:ring-1 focus:ring-canal-blue";
@@ -36,6 +37,18 @@ export default function AdminPasswordForm() {
     } else {
       setConfirmPwError("");
     }
+  }
+
+  const dirty = !!currentPw || !!newPw || !!confirmPw;
+
+  function handleCancel() {
+    if (dirty && !window.confirm("Discard unsaved changes?")) return;
+    setCurrentPw("");
+    setNewPw("");
+    setConfirmPw("");
+    setNewPwError("");
+    setConfirmPwError("");
+    setError("");
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -131,15 +144,12 @@ export default function AdminPasswordForm() {
         Tips: mix upper &amp; lowercase letters, numbers, and symbols for a stronger password.
       </p>
 
-      <div className="border-t border-stone-200 pt-5">
-        <button
-          type="submit"
-          disabled={saving || !!newPwError || !!confirmPwError}
-          className="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-60"
-        >
-          {saving ? "Saving…" : "Update password"}
-        </button>
-      </div>
+      <SaveBar
+        saving={saving}
+        disabled={!dirty || !!newPwError || !!confirmPwError}
+        onCancel={handleCancel}
+        label="Update password"
+      />
     </form>
   );
 }
