@@ -99,17 +99,6 @@ export function BriefcaseIcon({ className = "h-6 w-6" }: IconProps) {
   );
 }
 
-export function CanalHouseIcon({ className = "h-6 w-6" }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} stroke="currentColor" strokeWidth={1.6}>
-      <path d="M7 4h10v16H7V4Z" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M9 2h6v2H9V2Z" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M10 7h4M10 11h4M10 15h4" strokeLinecap="round" />
-      <path d="M3 20c1.5.8 3.5.8 5 0s3.5-.8 5 0 3.5.8 5 0 2.5-.5 3 0" strokeLinecap="round" />
-    </svg>
-  );
-}
-
 export function CalendarIcon({ className = "h-6 w-6" }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className} stroke="currentColor" strokeWidth={1.6}>
