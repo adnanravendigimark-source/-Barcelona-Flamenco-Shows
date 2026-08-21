@@ -1,0 +1,18 @@
+{
+  "heroBadge": "💃 Authentic Tablaos · Tapas & Sangria · Instant Confirmation",
+  "heroHeading": "Barcelona Flamenco Show — Passionate Live Performances & Tablao Tickets",
+  "heroSubheading": "Experience the raw emotion, virtuosic Spanish guitar, and fiery footwork of an authentic Barcelona flamenco show. Compare top historic tablaos, intimate venues, and dinner packages with instant confirmation.",
+  "heroImage": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=2400&auto=format&fit=crop",
+  "heroImageAlt": "Passionate Spanish flamenco dancer performing live on stage in Barcelona with red dress and dramatic lighting",
+  "ratingValue": "4.85 / 5",
+  "ratingCount": "55,000+ verified guest reviews",
+  "showFeaturedTour": true,
+  "featuredTourId": "tablao-cordobes-barcelona-flamenco-show",
+  "featuredBadgeLabel": "Most Iconic Tablao",
+  "featuredUrgencyText": "High Demand · Advance Booking Recommended",
+  "featuredReasons": [
+    "55,000+ verified reviews — rated 4.85 / 5 across Barcelona tablaos",
+    "Prime central venues on Las Ramblas, Plaça Reial, Gothic Quarter & Montjuïc",
+    "Free cancellation up to 24 hours before showtime"
+  ]
+}
