@@ -90,8 +90,10 @@ export default async function BlogIndexPage() {
         <BlogIndexContainer
           posts={posts}
           emptyStateText={s.emptyStateText}
-          ctaHeading="Book Your Barcelona Flamenco Show"
-          ctaBody="Best prices, authentic tablaos, and instant confirmation."
+          articlesHeading={s.articlesHeading}
+          articlesSubheading={s.articlesSubheading}
+          ctaHeading={s.ctaHeading}
+          ctaBody={s.ctaBody}
           ctaButtonText={s.ctaButtonText}
         />
       </main>

@@ -49,20 +49,14 @@ export default async function Hero() {
 
           {/* Headline */}
           <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.85rem] font-bold leading-[1.08] tracking-tight text-white">
-            Feel the Passion.
-            <br />
-            <span className="text-[#c93b3b]">
-              Live Flamenco
-              <br />
-              in Barcelona.
-            </span>
+            {content.heroHeading}
           </h1>
 
           {/* Subheading */}
-          <p className="mt-5 text-sm sm:text-base leading-relaxed text-stone-300 max-w-lg">
-            Experience the soul of Spain with authentic Flamenco shows in the heart of Barcelona.
-            Intimate venues, world-class artists, unforgettable memories.
-          </p>
+          <div
+            className="rich-content rich-content-invert mt-5 text-sm sm:text-base leading-relaxed text-stone-300 max-w-lg"
+            dangerouslySetInnerHTML={{ __html: content.heroSubheading }}
+          />
 
           {/* Buttons Row */}
           <div className="mt-8 flex flex-wrap items-center gap-4">

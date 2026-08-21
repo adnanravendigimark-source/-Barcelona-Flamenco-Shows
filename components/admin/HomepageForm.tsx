@@ -476,6 +476,9 @@ export default function HomepageForm({ initial, tours }: { initial: HomepageCont
             open={!!openSections["sec-why"]}
             onToggle={() => toggleSection("sec-why")}
           >
+            <Field label="Eyebrow (small label above the heading)">
+              <input value={content.sections.why.eyebrow} onChange={(e) => updateWhy({ eyebrow: e.target.value })} className={inputClass} />
+            </Field>
             <Field label="Section heading (H2)">
               <input value={content.sections.why.heading} onChange={(e) => updateWhy({ heading: e.target.value })} className={inputClass} />
             </Field>
@@ -533,10 +536,13 @@ export default function HomepageForm({ initial, tours }: { initial: HomepageCont
                 )}
               />
             </Field>
-            <div className="grid gap-5 sm:grid-cols-3">
-              <Field label="CTA banner text">
-                <input value={content.sections.why.ctaText} onChange={(e) => updateWhy({ ctaText: e.target.value })} className={inputClass} />
-              </Field>
+            <Field label="CTA banner text">
+              <input value={content.sections.why.ctaText} onChange={(e) => updateWhy({ ctaText: e.target.value })} className={inputClass} />
+            </Field>
+            <Field label="CTA banner subtext (small gold line underneath)">
+              <input value={content.sections.why.ctaSubtext} onChange={(e) => updateWhy({ ctaSubtext: e.target.value })} className={inputClass} />
+            </Field>
+            <div className="grid gap-5 sm:grid-cols-2">
               <Field label="CTA button text">
                 <input value={content.sections.why.ctaButtonText} onChange={(e) => updateWhy({ ctaButtonText: e.target.value })} className={inputClass} />
               </Field>
@@ -780,6 +786,14 @@ export default function HomepageForm({ initial, tours }: { initial: HomepageCont
               <input value={content.sections.blogPage.subheading} onChange={(e) => updateBlogPage({ subheading: e.target.value })} className={inputClass} />
             </Field>
             <div className="grid gap-5 sm:grid-cols-2">
+              <Field label={'"Latest Articles" heading (above the article grid)'}>
+                <input value={content.sections.blogPage.articlesHeading} onChange={(e) => updateBlogPage({ articlesHeading: e.target.value })} className={inputClass} />
+              </Field>
+              <Field label="Article grid subheading">
+                <input value={content.sections.blogPage.articlesSubheading} onChange={(e) => updateBlogPage({ articlesSubheading: e.target.value })} className={inputClass} />
+              </Field>
+            </div>
+            <div className="grid gap-5 sm:grid-cols-2">
               <Field label="Empty-state message" hint="Shown when there are no posts yet.">
                 <input value={content.sections.blogPage.emptyStateText} onChange={(e) => updateBlogPage({ emptyStateText: e.target.value })} className={inputClass} />
               </Field>
@@ -787,14 +801,18 @@ export default function HomepageForm({ initial, tours }: { initial: HomepageCont
                 <input value={content.sections.blogPage.featuredLinkText} onChange={(e) => updateBlogPage({ featuredLinkText: e.target.value })} className={inputClass} />
               </Field>
             </div>
+            <p className="text-xs font-medium text-stone-500">Sidebar promo card (shown on the listing page)</p>
             <div className="grid gap-5 sm:grid-cols-2">
-              <Field label="Bottom CTA heading">
+              <Field label="Promo card heading">
                 <input value={content.sections.blogPage.ctaHeading} onChange={(e) => updateBlogPage({ ctaHeading: e.target.value })} className={inputClass} />
               </Field>
-              <Field label="Bottom CTA button text">
+              <Field label="Promo card button text">
                 <input value={content.sections.blogPage.ctaButtonText} onChange={(e) => updateBlogPage({ ctaButtonText: e.target.value })} className={inputClass} />
               </Field>
             </div>
+            <Field label="Promo card body text">
+              <input value={content.sections.blogPage.ctaBody} onChange={(e) => updateBlogPage({ ctaBody: e.target.value })} className={inputClass} />
+            </Field>
             <div className="grid gap-5 sm:grid-cols-2">
               <Field label={'"Back to all guides" link text'}>
                 <input value={content.sections.blogPage.backToGuidesText} onChange={(e) => updateBlogPage({ backToGuidesText: e.target.value })} className={inputClass} />
@@ -824,6 +842,18 @@ export default function HomepageForm({ initial, tours }: { initial: HomepageCont
                 <input value={content.sections.blogPage.promoRecommendedText} onChange={(e) => updateBlogPage({ promoRecommendedText: e.target.value })} className={inputClass} />
               </Field>
             </div>
+            <p className="text-xs font-medium text-stone-500">Sidebar promo card (shown on every individual article page)</p>
+            <div className="grid gap-5 sm:grid-cols-2">
+              <Field label="Promo card heading">
+                <input value={content.sections.blogPage.postCtaHeading} onChange={(e) => updateBlogPage({ postCtaHeading: e.target.value })} className={inputClass} />
+              </Field>
+              <Field label="Promo card button text">
+                <input value={content.sections.blogPage.postCtaButtonText} onChange={(e) => updateBlogPage({ postCtaButtonText: e.target.value })} className={inputClass} />
+              </Field>
+            </div>
+            <Field label="Promo card body text">
+              <input value={content.sections.blogPage.postCtaBody} onChange={(e) => updateBlogPage({ postCtaBody: e.target.value })} className={inputClass} />
+            </Field>
           </SectionCard>
 
           <SectionCard

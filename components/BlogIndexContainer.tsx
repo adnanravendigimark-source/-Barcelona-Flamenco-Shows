@@ -8,12 +8,16 @@ import type { Post } from "@/lib/posts";
 export default function BlogIndexContainer({
   posts,
   emptyStateText,
+  articlesHeading,
+  articlesSubheading,
   ctaHeading,
   ctaBody,
   ctaButtonText,
 }: {
   posts: Post[];
   emptyStateText: string;
+  articlesHeading?: string;
+  articlesSubheading?: string;
   ctaHeading?: string;
   ctaBody?: string;
   ctaButtonText?: string;
@@ -35,9 +39,9 @@ export default function BlogIndexContainer({
     <div id="articles-section" className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:grid lg:grid-cols-[1fr_280px] lg:gap-10">
       <div>
         <div className="mb-6">
-          <h2 className="font-display text-2xl font-bold text-slate-900 sm:text-3xl">Latest Articles</h2>
+          <h2 className="font-display text-2xl font-bold text-slate-900 sm:text-3xl">{articlesHeading || "Latest Articles"}</h2>
           <p className="mt-1.5 text-xs text-slate-600 sm:text-sm">
-            Expert tips, travel guides and everything you need to know about Barcelona flamenco.
+            {articlesSubheading || "Expert tips, travel guides and everything you need to know about Barcelona flamenco."}
           </p>
         </div>
 

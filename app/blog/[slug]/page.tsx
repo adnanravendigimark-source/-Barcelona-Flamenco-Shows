@@ -219,6 +219,9 @@ export default async function Post({ params }: { params: { slug: string } }) {
                 popularPosts={popularPosts}
                 toc={toc}
                 tocLabel={s.tocLabel}
+                ctaHeading={s.postCtaHeading}
+                ctaBody={s.postCtaBody}
+                ctaButtonText={s.postCtaButtonText}
               />
             </div>
           </div>

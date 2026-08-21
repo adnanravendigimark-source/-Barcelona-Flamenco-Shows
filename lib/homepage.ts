@@ -51,6 +51,7 @@ export interface HighlightsSection {
 }
 
 export interface WhySection {
+  eyebrow: string;
   heading: string;
   intro: string;
   timelineHeading: string;
@@ -61,6 +62,7 @@ export interface WhySection {
   extraHeading: string;
   extraItems: { name: string; note: string }[];
   ctaText: string;
+  ctaSubtext: string;
   ctaButtonText: string;
   ctaHref: string;
 }
@@ -125,9 +127,12 @@ export interface BlogPageSection {
   eyebrow: string;
   heading: string;
   subheading: string;
+  articlesHeading: string;
+  articlesSubheading: string;
   emptyStateText: string;
   featuredLinkText: string;
   ctaHeading: string;
+  ctaBody: string;
   ctaButtonText: string;
   backToGuidesText: string;
   quickAnswerLabel: string;
@@ -137,6 +142,9 @@ export interface BlogPageSection {
   sidebarRecommendedBadge: string;
   sidebarCompareLinkText: string;
   promoRecommendedText: string;
+  postCtaHeading: string;
+  postCtaBody: string;
+  postCtaButtonText: string;
 }
 
 export interface HomepageSections {
@@ -327,6 +335,7 @@ export const DEFAULT_SECTIONS: HomepageSections = {
     ],
   },
   why: {
+    eyebrow: "Spanish Heritage & Artistry",
     heading: "What You Actually Experience at a Barcelona Flamenco Show",
     intro:
       "One evening, raw emotion, and more Spanish musical heritage than any museum could convey. Here is how a traditional flamenco performance unfolds on stage.",
@@ -354,6 +363,7 @@ export const DEFAULT_SECTIONS: HomepageSections = {
       { name: "Montjuïc Hill (Poble Espanyol)", note: "Andalusian village setting with full dinner and complimentary museum access" },
     ],
     ctaText: "Ready to feel the passion? Tickets start at €20/person with instant booking and free cancellation.",
+    ctaSubtext: "Daily showtimes across Las Ramblas, Gothic Quarter, El Born & Montjuïc",
     ctaButtonText: "Book Flamenco Tickets →",
     ctaHref: "#tours",
   },
@@ -445,13 +455,19 @@ export const DEFAULT_SECTIONS: HomepageSections = {
     eyebrow: "Flamenco Guide & Tips",
     heading: "Barcelona Flamenco Guides & Cultural Tips",
     subheading: "Practical advice to help you choose the best tablao, understand flamenco traditions, and book the perfect evening.",
+    articlesHeading: "Latest Articles",
+    articlesSubheading: "Expert tips, travel guides and everything you need to know about Barcelona flamenco.",
     emptyStateText: "No articles published yet — check back soon.",
     featuredLinkText: "Read the guide",
-    ctaHeading: "Ready to experience live flamenco in Barcelona?",
+    ctaHeading: "Book Your Barcelona Flamenco Show",
+    ctaBody: "Best prices, authentic tablaos, and instant confirmation.",
     ctaButtonText: "Compare Barcelona Flamenco Shows & Tickets →",
     backToGuidesText: "← All travel guides",
     quickAnswerLabel: "Quick Answer",
     tocLabel: "In This Guide",
+    postCtaHeading: "Compare Barcelona Flamenco Shows & Tickets",
+    postCtaBody: "Find the best tablaos, showtimes, and dinner packages in one place.",
+    postCtaButtonText: "Compare Now →",
     relatedGuidesHeading: "Related Travel Guides",
     sidebarRelatedHeading: "Related Travel Guides",
     sidebarRecommendedBadge: "Recommended",

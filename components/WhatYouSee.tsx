@@ -9,7 +9,7 @@ export default async function WhatYouSee() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl">
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-red-600">
-            Spanish Heritage &amp; Artistry
+            {s.eyebrow}
           </span>
           <h2 className="mt-2 font-display text-3xl font-bold text-zinc-900 sm:text-4xl">{s.heading}</h2>
           <div
@@ -65,7 +65,7 @@ export default async function WhatYouSee() {
         <div className="mt-12 flex flex-col items-start gap-4 rounded-2xl border border-amber-400/20 bg-gradient-to-r from-zinc-950 via-stone-900 to-zinc-950 p-8 text-white shadow-xl sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-lg font-bold">{s.ctaText}</p>
-            <p className="text-xs text-amber-300 mt-0.5 font-medium">Daily showtimes across Las Ramblas, Gothic Quarter, El Born &amp; Montjuïc</p>
+            <p className="text-xs text-amber-300 mt-0.5 font-medium">{s.ctaSubtext}</p>
           </div>
           <a
             href={s.ctaHref}
