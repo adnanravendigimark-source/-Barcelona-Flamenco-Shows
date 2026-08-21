@@ -77,7 +77,7 @@ export default async function AboutPage() {
         </section>
 
         {/* Page body — one flowing rich-text field, edited like a blog post */}
-        <div className="mx-auto max-w-2xl px-4 py-14 sm:px-6 sm:py-20">
+        <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6 sm:py-20">
           <div
             className="rich-content leading-relaxed text-slate-600"
             dangerouslySetInnerHTML={{ __html: about.content }}
