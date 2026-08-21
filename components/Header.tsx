@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import MobileNav from "./MobileNav";
+import HeaderNav from "./HeaderNav";
 import { getSiteChrome } from "@/lib/homepage";
 
 export default async function Header() {
@@ -10,21 +11,7 @@ export default async function Header() {
       <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Logo src={header.logoImage} alt={header.logoAlt} line1={header.logoLine1} line2={header.logoLine2} />
         
-        <nav className="hidden items-center gap-7 lg:gap-9 text-sm font-medium text-stone-300 md:flex">
-          {header.navLinks.map((link, idx) => (
-            <Link
-              key={link.href + link.label}
-              href={link.href}
-              className={`relative py-1.5 transition-colors hover:text-white ${
-                idx === 0
-                  ? "text-red-500 font-semibold after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-red-500"
-                  : "text-stone-300 hover:text-white"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        <HeaderNav links={header.navLinks} />
 
         <div className="flex items-center gap-3">
           <Link
