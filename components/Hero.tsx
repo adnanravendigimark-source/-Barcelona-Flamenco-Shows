@@ -20,41 +20,67 @@ export default async function Hero() {
             muted
             loop
             playsInline
-            className="absolute inset-0 h-full w-full object-cover object-right md:object-center"
+            className="absolute inset-0 h-full w-full object-cover object-[78%_center] md:object-center"
           />
         ) : (
-          <SafeImage
-            src={content.heroImage || "/images/hero-flamenco.jpg"}
-            alt={content.heroImageAlt || "Live Flamenco in Barcelona"}
-            fill
-            priority
-            quality={68}
-            sizes="100vw"
-            className="object-cover object-right md:object-center"
-          />
+          <>
+            {/* Mobile portrait view with centered dancer and vibrant lighting */}
+            <div className="relative h-full w-full block md:hidden">
+              <SafeImage
+                src="/images/hero-flamenco-mobile.jpg"
+                alt={content.heroImageAlt || "Live Flamenco in Barcelona"}
+                fill
+                priority
+                quality={85}
+                sizes="100vw"
+                className="object-cover object-[center_top]"
+              />
+            </div>
+            {/* Tablet & Desktop wide landscape view */}
+            <div className="relative h-full w-full hidden md:block">
+              <SafeImage
+                src={content.heroImage || "/images/hero-flamenco.jpg"}
+                alt={content.heroImageAlt || "Live Flamenco in Barcelona"}
+                fill
+                priority
+                quality={85}
+                sizes="100vw"
+                className="object-cover object-[78%_center] lg:object-center"
+              />
+            </div>
+          </>
         )}
 
-        {/* Dark moody left-vignette gradient ensuring high text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 via-35% to-transparent sm:via-black/80 sm:via-45%" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30" />
+        {/* Ambient Gradient Layering */}
+        {/* On Mobile: gentle gradient from bottom to preserve dancer visibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/65 via-60% to-black/25 md:hidden" />
+        {/* On Desktop: left-to-right cinematic shadow */}
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black via-black/85 via-40% to-transparent" />
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
       </div>
 
       {/* Hero Content */}
       <div className="relative mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
         <div className="max-w-2xl">
           {/* Eyebrow */}
-          <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-[#c93b3b] mb-4">
+          <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-[#c93b3b] mb-4 drop-shadow-sm">
             {content.heroBadge || "BARCELONA FLAMENCO SHOWS"}
           </p>
 
           {/* Headline */}
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.85rem] font-bold leading-[1.08] tracking-tight text-white">
-            {content.heroHeading}
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.85rem] font-bold leading-[1.08] tracking-tight text-white drop-shadow-md">
+            Feel the Passion.
+            <br />
+            <span className="text-[#c93b3b]">
+              Live Flamenco
+              <br />
+              in Barcelona.
+            </span>
           </h1>
 
           {/* Subheading */}
           <div
-            className="rich-content rich-content-invert mt-5 text-sm sm:text-base leading-relaxed text-stone-300 max-w-lg"
+            className="rich-content rich-content-invert mt-5 text-sm sm:text-base leading-relaxed text-stone-200 drop-shadow max-w-lg"
             dangerouslySetInnerHTML={{ __html: content.heroSubheading }}
           />
 
