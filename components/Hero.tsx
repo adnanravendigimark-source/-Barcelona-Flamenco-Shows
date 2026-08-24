@@ -68,14 +68,8 @@ export default async function Hero() {
           </p>
 
           {/* Headline */}
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.85rem] font-bold leading-[1.08] tracking-tight text-white drop-shadow-md">
-            Feel the Passion.
-            <br />
-            <span className="text-[#c93b3b]">
-              Live Flamenco
-              <br />
-              in Barcelona.
-            </span>
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.85rem] font-bold leading-[1.08] tracking-tight text-white drop-shadow-md whitespace-pre-line">
+            {content.heroHeading}
           </h1>
 
           {/* Subheading */}

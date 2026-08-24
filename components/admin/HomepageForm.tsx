@@ -46,7 +46,7 @@ const CONTENT_SECTIONS = [
   { id: "sec-highlights", label: "Highlights" },
   { id: "sec-tourgrid", label: "Tour Grid" },
   { id: "sec-why", label: "What You See" },
-  { id: "sec-tower", label: "Illuminations Cruise" },
+  { id: "sec-tower", label: "Dinner & Show" },
   { id: "sec-practical", label: "Practical Info" },
   { id: "sec-price", label: "Price Comparison" },
   { id: "sec-blogteaser", label: "Blog Teaser" },
@@ -391,14 +391,6 @@ export default function HomepageForm({ initial, tours }: { initial: HomepageCont
               <RichTextEditor value={content.heroSubheading} onChange={(html) => update("heroSubheading", html)} minHeight="4rem" />
             </Field>
             <div className="grid gap-5 sm:grid-cols-2">
-              <Field label="Rating value" hint="e.g. 4.8 / 5">
-                <input value={content.ratingValue} onChange={(e) => update("ratingValue", e.target.value)} className={inputClass} />
-              </Field>
-              <Field label="Rating count label" hint="e.g. 1,200+ reviews">
-                <input value={content.ratingCount} onChange={(e) => update("ratingCount", e.target.value)} className={inputClass} />
-              </Field>
-            </div>
-            <div className="grid gap-5 sm:grid-cols-2">
               <Field label="Primary button text">
                 <input value={content.heroCtaPrimaryText} onChange={(e) => update("heroCtaPrimaryText", e.target.value)} className={inputClass} />
               </Field>
@@ -519,7 +511,7 @@ export default function HomepageForm({ initial, tours }: { initial: HomepageCont
             <Field label="Small note under the bullets">
               <textarea rows={2} value={content.sections.why.note} onChange={(e) => updateWhy({ note: e.target.value })} className={inputClass} />
             </Field>
-            <Field label="Optional 3rd list heading" hint="Leave blank and empty to hide this block entirely — e.g. a “Where you can board” list for a cruise site.">
+            <Field label="Optional 3rd list heading" hint="Leave blank and empty to hide this block entirely — e.g. a “Where the top tablaos are located” list.">
               <input value={content.sections.why.extraHeading} onChange={(e) => updateWhy({ extraHeading: e.target.value })} className={inputClass} />
             </Field>
             <Field label="Optional 3rd list items">
@@ -554,7 +546,7 @@ export default function HomepageForm({ initial, tours }: { initial: HomepageCont
 
           <SectionCard
             id="sec-tower"
-            title="Illuminations Cruise section"
+            title="Dinner & Show section"
             description="Images live on the Images tab."
             open={!!openSections["sec-tower"]}
             onToggle={() => toggleSection("sec-tower")}
@@ -654,7 +646,7 @@ export default function HomepageForm({ initial, tours }: { initial: HomepageCont
               <RichTextEditor value={content.sections.price.subheading} onChange={(html) => updatePrice({ subheading: html })} minHeight="4rem" />
             </Field>
             <div className="grid gap-5 sm:grid-cols-2">
-              <Field label="Column: item name" hint='e.g. "Cruise Option"'>
+              <Field label="Column: item name" hint='e.g. "Flamenco Venue & Show"'>
                 <input value={content.sections.price.itemLabel} onChange={(e) => updatePrice({ itemLabel: e.target.value })} className={inputClass} />
               </Field>
               <Field label="Column: price" hint='e.g. "Price"'>
@@ -835,7 +827,7 @@ export default function HomepageForm({ initial, tours }: { initial: HomepageCont
               <Field label="Related Articles heading">
                 <input value={content.sections.blogPage.sidebarRelatedHeading} onChange={(e) => updateBlogPage({ sidebarRelatedHeading: e.target.value })} className={inputClass} />
               </Field>
-              <Field label="Compare-all-cruises link text">
+              <Field label="Compare-all-shows link text">
                 <input value={content.sections.blogPage.sidebarCompareLinkText} onChange={(e) => updateBlogPage({ sidebarCompareLinkText: e.target.value })} className={inputClass} />
               </Field>
               <Field label={'Mid-article promo card "Recommended for you" label'}>
@@ -1006,7 +998,7 @@ export default function HomepageForm({ initial, tours }: { initial: HomepageCont
                 )}
               </div>
               <div className="bg-stone-50 p-3">
-                <p className="truncate text-xs uppercase tracking-wide text-stone-400">barcelonaflamencoshow.com</p>
+                <p className="truncate text-xs uppercase tracking-wide text-stone-400">barcelonaflamencoshows.com</p>
                 <p className="mt-0.5 truncate text-sm font-semibold text-stone-900">{content.ogTitle || content.metaTitle || content.heroHeading}</p>
                 <p className="mt-0.5 line-clamp-2 text-xs text-stone-500">{(content.ogDescription || content.metaDescription || content.heroSubheading).replace(/<[^>]+>/g, "")}</p>
               </div>
