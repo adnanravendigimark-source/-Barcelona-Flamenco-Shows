@@ -109,10 +109,19 @@ body {
   text-align: center;
 }
 .rich-content table {
+  display: block;
   width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border-collapse: collapse;
   margin: 1em 0;
   font-size: 0.95em;
+}
+@media (min-width: 640px) {
+  .rich-content table {
+    display: table;
+  }
 }
 .rich-content table td,
 .rich-content table th {
