@@ -72,7 +72,15 @@ export function buildArticleJsonLd(article: {
     "@type": "Article",
     headline: article.headline,
     description: article.description,
-    ...(article.image ? { image: [article.image] } : {}),
+    ...(article.image
+      ? {
+          image: [
+            article.image.startsWith("http")
+              ? article.image
+              : `${SITE_URL}${article.image.startsWith("/") ? "" : "/"}${article.image}`,
+          ],
+        }
+      : {}),
     datePublished: article.datePublished,
     dateModified: article.dateModified || article.datePublished,
     author: { "@type": "Organization", name: article.authorName },

@@ -10,8 +10,8 @@ export const dynamic = "force-dynamic";
 
 const cards: { href: string; label: string; desc: string; icon: typeof HomeIcon; pageKey: PageKey }[] = [
   { href: "/admin/homepage", label: "Homepage Content", desc: "Hero headline, subheading, photo, and SEO.", icon: HomeIcon, pageKey: "homepage" },
-  { href: "/admin/recommended", label: "Recommended Tour", desc: "Which cruise gets the gold spotlight + sticky mobile bar.", icon: StarBadgeIcon, pageKey: "homepage" },
-  { href: "/admin/tours", label: "Tours & Tickets", desc: "The bookable cruises shown on the homepage.", icon: TicketStackIcon, pageKey: "tours" },
+  { href: "/admin/recommended", label: "Recommended Tour", desc: "Which show gets the gold spotlight + sticky mobile bar.", icon: StarBadgeIcon, pageKey: "homepage" },
+  { href: "/admin/tours", label: "Tours & Tickets", desc: "The bookable flamenco shows shown on the homepage.", icon: TicketStackIcon, pageKey: "tours" },
   { href: "/admin/posts", label: "Blog Posts", desc: "Articles shown on /blog, including full SEO per post.", icon: DocumentIcon, pageKey: "posts" },
   { href: "/admin/faqs", label: "FAQs", desc: "Homepage FAQ accordion.", icon: QuestionIcon, pageKey: "faqs" },
   { href: "/admin/privacy", label: "Privacy Policy", desc: "Legal page shown at /privacy-policy, linked from the footer.", icon: ShieldIcon, pageKey: "privacy" },
@@ -51,7 +51,7 @@ export default async function AdminDashboardPage() {
       <div className="mt-8 grid gap-4 sm:grid-cols-3">
         <div className="rounded-2xl border border-stone-200 bg-white p-5">
           <p className="text-3xl font-bold text-stone-900">{tours.length}</p>
-          <p className="text-sm text-stone-500">Cruises &amp; tickets live</p>
+          <p className="text-sm text-stone-500">Shows &amp; tickets live</p>
         </div>
         <div className="rounded-2xl border border-stone-200 bg-white p-5">
           <p className="text-3xl font-bold text-stone-900">{posts.length}</p>

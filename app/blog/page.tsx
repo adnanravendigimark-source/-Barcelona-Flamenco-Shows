@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SafeImage from "@/components/SafeImage";
 import BlogIndexContainer from "@/components/BlogIndexContainer";
-import { WaveBoatIcon } from "@/components/icons";
+import { StarIcon } from "@/components/icons";
 import { getPosts } from "@/lib/posts";
 import { getBlogSeoSettings } from "@/lib/settings";
 import { getHomepageContent } from "@/lib/homepage";
@@ -76,7 +76,7 @@ export default async function BlogIndexPage() {
             {/* Decorative Divider */}
             <div className="mt-5 flex items-center justify-center sm:justify-start gap-3 max-w-xs mx-auto sm:mx-0">
               <span className="h-px flex-1 bg-white/30" />
-              <WaveBoatIcon className="h-5 w-5 text-sky-300" />
+              <StarIcon className="h-4 w-4 text-sky-300" />
               <span className="h-px flex-1 bg-white/30" />
             </div>
 

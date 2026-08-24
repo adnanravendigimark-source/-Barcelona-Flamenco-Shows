@@ -14,6 +14,7 @@ import Footer from "@/components/Footer";
 import { getTours } from "@/lib/data";
 import { getHomepageContent } from "@/lib/homepage";
 import { resolveRobots, resolveCanonical, resolveOg, stripHtml } from "@/lib/seo";
+import { SITE_URL } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
@@ -44,9 +45,7 @@ export default async function HomePage() {
       description: t.description.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim(),
       // Google Search Console's Merchant listings check flags Product
       // structured data missing an "image" as a critical error — t.image
-      // is already an absolute URL (Unsplash/Blob), so no SITE_URL prefix
-      // needed here.
-      image: t.image,
+      image: t.image.startsWith("http") ? t.image : `${SITE_URL}${t.image.startsWith("/") ? "" : "/"}${t.image}`,
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: t.rating,
