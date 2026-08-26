@@ -52,7 +52,7 @@ function formatDate(iso: string) {
 
 function getAuthorParts(author: string) {
   const [namePart, rolePart] = (author || "").split("/").map((s) => s.trim());
-  const name = namePart || "Barcelona Flamenco Show";
+  const name = namePart || "Alhambra Tour";
   const role = rolePart || "";
   const initials =
     name
@@ -62,7 +62,7 @@ function getAuthorParts(author: string) {
       .map((w) => w[0])
       .join("")
       .slice(0, 2)
-      .toUpperCase() || "BF";
+      .toUpperCase() || "AT";
   return { name, role, initials };
 }
 
@@ -88,8 +88,8 @@ export default async function Post({ params }: { params: { slug: string } }) {
     datePublished: post.date,
     dateModified: post.updatedAt || post.date,
     url: `${SITE_URL}/blog/${post.slug}`,
-    authorName: post.author || "Barcelona Flamenco Show",
-    siteName: "Barcelona Flamenco Show",
+    authorName: post.author || "Alhambra Tour",
+    siteName: "Alhambra Tour",
   });
 
   const { toc: headingToc, html: contentHtml } = extractTableOfContents(post.content);

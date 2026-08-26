@@ -29,32 +29,32 @@ export interface ContactPageContent {
 }
 
 const DEFAULT_CONTACT: ContactPageContent = {
-  heroEyebrow: "Contact",
+  heroEyebrow: "Contact Us",
   heroHeading: "Get in Touch",
   heroSubheading:
-    "Questions about a Barcelona flamenco show, tickets, or venue options — or a partnership inquiry? Reach out directly by email.",
+    "Questions about an Alhambra guided tour, Nasrid Palaces tickets, or visiting Granada — or a partnership inquiry? Reach out directly by email.",
   email: "livetravelpartner@gmail.com",
   emailLabel: "Email Us Directly",
   emailNote: "We typically reply within 1–2 business days.",
   reasonsHeading: "What we can help with",
   reasons: [
-    { icon: "HeadsetIcon", title: "Booking Advice", body: "Need advice on whether to choose an intimate tablao like Cordobes, a historic theater like City Hall, or a dinner show at Tablao de Carmen? Ask us before you book." },
-    { icon: "BriefcaseIcon", title: "Partnerships & Press", body: "Flamenco tablaos, cultural venues, tourism organizations, and affiliate partners — contact us regarding features or collaborations." },
-    { icon: "MailIcon", title: "General Inquiries", body: "Questions, feedback, or content corrections regarding our Barcelona flamenco guides." },
+    { icon: "HeadsetIcon", title: "Booking Advice", body: "Need advice on whether to choose a small-group guided tour, fast-track entry ticket, or VIP private experience? Ask us before you book." },
+    { icon: "BriefcaseIcon", title: "Partnerships & Media", body: "Official tour agencies, local guides, Granada tourism boards, and affiliate partners — reach out regarding features or collaborations." },
+    { icon: "MailIcon", title: "General Inquiries", body: "Questions, feedback, or content corrections regarding our Alhambra travel guides." },
   ],
   footerNote:
-    "Already have a booking voucher? Please contact the ticketing provider or venue directly via the details on your confirmation email for immediate schedule adjustments or cancellations.",
-  ctaHeading: "Ready to reserve your seats?",
-  ctaButtonLabel: "Compare Barcelona Flamenco Shows & Tickets",
-  metaTitle: "Contact Us | Barcelona Flamenco Show Guide",
+    "Already have a booking voucher? Please contact your ticketing provider directly via the customer support link on your voucher for instant time slot adjustments or cancellations.",
+  ctaHeading: "Ready to reserve your Alhambra tour?",
+  ctaButtonLabel: "Compare Alhambra Tours & Tickets",
+  metaTitle: "Contact Us | Alhambra Tour Guide",
   metaDescription:
-    "Questions about booking an authentic Barcelona flamenco show, dinner package, or tickets online? Reach out directly to our team.",
+    "Questions about booking an Alhambra tour, Nasrid Palaces tickets, or visiting Granada online? Reach out directly to our team.",
   canonicalUrl: "",
   noIndex: false,
   noFollow: false,
-  ogTitle: "",
-  ogDescription: "",
-  ogImage: "",
+  ogTitle: "Contact Us | Alhambra Tour",
+  ogDescription: "Reach out to our team for questions regarding Alhambra guided tours and ticket availability.",
+  ogImage: "/images/hero-alhambra.jpg",
 };
 
 function parseReasons(value: unknown): ContactReason[] {

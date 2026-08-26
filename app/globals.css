@@ -19,15 +19,16 @@ html {
 }
 
 body {
-  color: #18181b;
+  color: #29302A;
+  background-color: #F8F3E9;
 }
 
-/* Barcelona Flamenco brand-color CSS variables — space-separated RGB triplets */
+/* Alhambra Tour brand-color CSS variables — space-separated RGB triplets */
 :root {
-  --color-canal-primary: 201 24 43;    /* #c9182b - Deep Passion Spanish Crimson */
-  --color-canal-blue: 217 119 6;       /* #d97706 - Spanish Andalusian Gold / Amber */
-  --color-canal-ink: 18 18 22;         /* #121216 - Midnight Tablao Noir */
-  --color-gold-400: 225 29 72;         /* #e11d48 - Spanish Ruby / Rose */
+  --color-canal-primary: 38 61 42;     /* #263D2A - Deep Olive Green */
+  --color-canal-blue: 200 100 63;      /* #C8643F - Terracotta */
+  --color-canal-ink: 41 48 42;        /* #29302A - Charcoal */
+  --color-gold-400: 199 154 82;       /* #C79A52 - Muted Gold */
 }
 
 /* Shared typography for admin-entered rich text */
