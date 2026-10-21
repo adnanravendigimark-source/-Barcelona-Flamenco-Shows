@@ -18,37 +18,37 @@ export interface AboutPageContent {
 }
 
 const DEFAULT_ABOUT: AboutPageContent = {
-  heroEyebrow: "About Us",
-  heroHeading: "Your Independent Guide to Barcelona Flamenco Shows & Tickets",
+  heroEyebrow: "About Alhambra Tour",
+  heroHeading: "Your Independent Guide to Alhambra Guided Tours & Tickets",
   heroSubheading:
-    "We help travelers discover authentic Barcelona flamenco shows, historic tablaos, and dinner packages — curated from Spain's finest venues and explained in plain language.",
-  heroImage: "/images/hero-flamenco.jpg",
-  heroImageAlt: "Authentic live flamenco performance in Barcelona with passionate dancer and Spanish guitar",
+    "We help travelers discover authentic Alhambra guided tours, Nasrid Palaces entrance tickets, and Granada cultural experiences — curated from licensed providers and explained in plain language.",
+  heroImage: "/images/hero-alhambra.jpg",
+  heroImageAlt: "Panoramic sunset view of the Alhambra Palace in Granada Spain",
   content: `<h2>Our Mission</h2>
-<p>We built this guide with a clear conviction: attending a live flamenco performance is one of the most intense, unforgettable cultural moments in Spain — but only if you choose an authentic venue. With dozens of tourist flyers and promotional booths scattered along Las Ramblas, choosing the right tablao shouldn't be confusing.</p>
-<p>We are an independent Barcelona flamenco guide. We compare world-renowned institutions like Tablao Cordobes, historic theater performances at Teatro City Hall, intimate Gothic Quarter tablaos like Los Tarantos, and full tapas &amp; dinner experiences like Tablao de Carmen, pointing you directly to genuine master artists.</p>
-<h2>How We Select Our Featured Flamenco Shows</h2>
-<p>Every tablao and show listed on this guide is vetted against four strict criteria:</p>
+<p>We built this guide with a clear conviction: visiting the Alhambra Palace in Granada is one of the most breathtaking cultural moments in Spain — but securing tickets and navigating entry rules can be daunting. With daily visitor limits and complex Nasrid Palaces time slots, choosing the right tour option shouldn't be confusing.</p>
+<p>We are an independent Alhambra Tour guide. We compare official guided tours, fast-track entry tickets, private VIP experiences, and city walking combos, helping you select the perfect option for your trip.</p>
+<h2>How We Select Our Featured Alhambra Tours</h2>
+<p>Every tour and ticket option listed on this guide is vetted against four strict criteria:</p>
 <ul>
-<li><strong>Artistic Authenticity &amp; Mastery</strong> — We feature established venues that showcase award-winning <em>cantaores</em>, virtuosic Spanish guitarists, and revered <em>bailaores</em> performing true unchoreographed improvisational flamenco.</li>
-<li><strong>Acoustic &amp; Sightline Quality</strong> — Whether it's an intimate cave-style tablao without microphones or a 19th-century theater hall, we ensure every venue offers clear, captivating stage views and acoustic richness.</li>
-<li><strong>Verified Guest Reviews</strong> — We only feature performances with thousands of verified positive reviews and consistently high traveler satisfaction ratings.</li>
-<li><strong>Transparent Pricing &amp; Guarantees</strong> — The ticket price you see is the full price, with clear options for included drinks, tapas tastings, or full multi-course Spanish dinners, plus free cancellation up to 24 hours in advance.</li>
+<li><strong>Official Licensed Guides</strong> — We prioritize tours led by passionate, licensed local art historians with deep knowledge of Nasrid dynasty architecture and Andalusian history.</li>
+<li><strong>Guaranteed Nasrid Palaces Access</strong> — We feature experiences with clear, confirmed admission to the Nasrid Palaces (Court of the Lions, Hall of Ambassadors) alongside the Generalife Gardens and Alcazaba.</li>
+<li><strong>Verified Traveler Satisfaction</strong> — We only highlight tours with thousands of positive verified guest reviews and reliable operation track records.</li>
+<li><strong>Transparent Pricing &amp; Flexible Terms</strong> — Clear upfront pricing with no hidden charges, accompanied by flexible cancellation policies up to 24 hours prior to departure.</li>
 </ul>
-<h2>Independent Flamenco Guide</h2>
-<p>This is an independent cultural guide and booking comparison resource, not an individual theater or ticketing company. Bookings made through our verified links are fulfilled securely by GetYourGuide, our trusted ticketing partner, backed by instant mobile voucher delivery and flexible cancellation policies.</p>
+<h2>Independent Alhambra Booking Guide</h2>
+<p>This is an independent cultural guide and booking comparison resource, not an official government ticketing office. Bookings made through our verified links are processed securely by GetYourGuide, backed by instant mobile voucher delivery and 24/7 customer support.</p>
 <h2>Affiliate Disclosure</h2>
-<p>When you book a Barcelona flamenco show through links on this website, we may earn an affiliate commission from the booking partner at no extra cost to you. This enables us to maintain our guide, review venues independently, and keep our content freely accessible to travelers worldwide.</p>
+<p>When you book an Alhambra tour through links on this website, we may earn an affiliate commission from the booking partner at no extra cost to you. This enables us to maintain our guide, review tour options independently, and keep our content freely accessible to travelers worldwide.</p>
 <p>Have questions before you reserve? Visit our <a href="/contact">contact page</a>.</p>`,
-  metaTitle: "About Us | Barcelona Flamenco Show Guide & Tickets",
+  metaTitle: "About Us | Alhambra Tour Guide & Tickets",
   metaDescription:
-    "Who curates our Barcelona flamenco show recommendations, how we select authentic tablaos, and why booking ahead guarantees prime seating.",
+    "Who curates our Alhambra tour recommendations, how we select official guided tours, and why booking ahead guarantees Nasrid Palaces access.",
   canonicalUrl: "",
   noIndex: false,
   noFollow: false,
-  ogTitle: "",
-  ogDescription: "",
-  ogImage: "",
+  ogTitle: "About Us | Alhambra Tour",
+  ogDescription: "Independent guide to Alhambra tours, Nasrid Palaces tickets, and Granada travel tips.",
+  ogImage: "/images/hero-alhambra.jpg",
 };
 
 function rowToAbout(row: any): AboutPageContent {

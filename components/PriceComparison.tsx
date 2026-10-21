@@ -5,22 +5,22 @@ export default async function PriceComparison() {
   const [tours, { sections }] = await Promise.all([getTours(), getHomepageContent()]);
   const s = sections.price;
   return (
-    <section id="prices" className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+    <section id="prices" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
       <div className="max-w-3xl">
-        <span className="inline-block text-xs font-bold uppercase tracking-widest text-red-600">
+        <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#C8643F]">
           {s.eyebrow}
         </span>
-        <h2 className="mt-2 font-display text-3xl font-bold text-zinc-900 sm:text-4xl">{s.heading}</h2>
+        <h2 className="mt-2 font-serif text-3xl font-bold text-[#263D2A] sm:text-4xl">{s.heading}</h2>
         <div
-          className="rich-content mt-3 text-base text-stone-600"
+          className="rich-content mt-3 text-base text-[#29302A]/80"
           dangerouslySetInnerHTML={{ __html: s.subheading }}
         />
       </div>
 
-      <div className="mt-10 overflow-x-auto rounded-2xl border border-stone-200/80 bg-white shadow-sm">
-        <table className="w-full min-w-[700px] border-collapse text-left text-sm">
+      <div className="mt-10 overflow-x-auto rounded-2xl border border-[#E5D6BE] bg-white shadow-sm">
+        <table className="w-full min-w-[720px] border-collapse text-left text-sm">
           <thead>
-            <tr className="bg-zinc-950 text-white">
+            <tr className="bg-[#263D2A] text-white">
               <th className="px-6 py-4 font-semibold text-xs uppercase tracking-wider">{s.itemLabel}</th>
               <th className="px-6 py-4 font-semibold text-xs uppercase tracking-wider">{s.priceLabel}</th>
               <th className="px-6 py-4 font-semibold text-xs uppercase tracking-wider">{s.column1Label}</th>
@@ -29,27 +29,27 @@ export default async function PriceComparison() {
               <th className="px-6 py-4 font-semibold text-xs uppercase tracking-wider text-right"></th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-stone-100">
+          <tbody className="divide-y divide-[#E5D6BE]/60">
             {tours.map((tour, i) => (
               <tr
                 key={tour.id}
-                className={`transition hover:bg-red-50/40 ${
-                  tour.ribbon === "Most Iconic Tablao" ? "bg-red-50/60 font-medium" : i % 2 ? "bg-stone-50/60" : ""
+                className={`transition hover:bg-[#F8F3E9] ${
+                  tour.featured ? "bg-[#F8F3E9]/70 font-medium" : i % 2 ? "bg-stone-50/60" : ""
                 }`}
               >
-                <td className="px-6 py-4 font-semibold text-zinc-900">{tour.title}</td>
-                <td className="px-6 py-4 font-bold text-red-600">
-                  €{tour.price} <span className="font-normal text-xs text-stone-400">/ person</span>
+                <td className="px-6 py-4 font-serif font-bold text-[#263D2A]">{tour.title}</td>
+                <td className="px-6 py-4 font-bold text-[#C8643F]">
+                  €{tour.price} <span className="font-normal text-xs text-[#29302A]/60">/ person</span>
                 </td>
-                <td className="px-6 py-4 text-stone-600">{tour.priceTableColumn1 || tour.duration}</td>
-                <td className="px-6 py-4 text-stone-600">{tour.priceTableFeature || "No"}</td>
-                <td className="px-6 py-4 text-stone-600">{tour.bestFor}</td>
+                <td className="px-6 py-4 text-[#29302A]/80">{tour.priceTableColumn1 || tour.duration}</td>
+                <td className="px-6 py-4 text-[#29302A]/80">{tour.priceTableFeature || "Included"}</td>
+                <td className="px-6 py-4 text-[#29302A]/80">{tour.bestFor}</td>
                 <td className="px-6 py-4 text-right">
                   <a
                     href={tour.href}
                     target="_blank"
                     rel="noopener nofollow sponsored"
-                    className="inline-flex rounded-xl border border-amber-300/30 bg-gradient-to-r from-red-600 via-rose-600 to-amber-600 px-4 py-2 text-xs font-bold text-white shadow-sm shadow-red-900/20 transition-all duration-200 hover:scale-[1.03] hover:shadow-md hover:shadow-red-600/30 hover:brightness-105 active:scale-[0.98]"
+                    className="inline-flex rounded-xl bg-[#263D2A] hover:bg-[#C8643F] px-4 py-2 text-xs font-bold text-white shadow-xs transition-all duration-200 hover:scale-[1.03] active:scale-[0.98]"
                   >
                     {s.bookLabel}
                   </a>
@@ -59,7 +59,7 @@ export default async function PriceComparison() {
           </tbody>
         </table>
       </div>
-      <p className="mt-3.5 text-xs text-stone-400">{s.note}</p>
+      <p className="mt-3.5 text-xs text-[#29302A]/60">{s.note}</p>
     </section>
   );
 }

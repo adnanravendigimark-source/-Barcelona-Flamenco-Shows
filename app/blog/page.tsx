@@ -32,55 +32,54 @@ export default async function BlogIndexPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-stone-50">
+      <main className="min-h-screen bg-[#F8F3E9]">
         {/* Blog Hero Banner */}
-        <section className="relative overflow-hidden bg-canal-navy text-white">
+        <section className="relative overflow-hidden bg-[#263D2A] text-white">
           <div className="absolute inset-0">
             <SafeImage
-              src={heroImage || "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?q=80&w=2400&auto=format&fit=crop"}
-              alt={heroImageAlt || "Barcelona flamenco show stage at dusk"}
+              src={heroImage || "/images/hero-alhambra.jpg"}
+              alt={heroImageAlt || "Alhambra Palace Granada at sunset"}
               fill
               priority
-              quality={68}
+              quality={80}
               sizes="100vw"
-              className="object-cover object-center opacity-35"
+              className="object-cover object-center opacity-30"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-canal-navy via-canal-navy/80 to-transparent" />
-            <div className="absolute inset-0 bg-mosaic mix-blend-soft-light" aria-hidden="true" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#263D2A] via-[#263D2A]/80 to-transparent" />
           </div>
 
-          <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 text-center sm:text-left">
+          <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 text-center sm:text-left">
             {/* Breadcrumb */}
-            <nav aria-label="Breadcrumb" className="text-xs font-medium text-stone-200/70">
+            <nav aria-label="Breadcrumb" className="text-xs font-medium text-[#E5D6BE]/80">
               <ol className="flex items-center justify-center sm:justify-start gap-1.5">
                 <li>
                   <Link href="/" className="hover:text-white transition-colors">
                     Home
                   </Link>
                 </li>
-                <li className="text-stone-200/40">&gt;</li>
+                <li className="text-[#E5D6BE]/40">&gt;</li>
                 <li className="font-semibold text-white" aria-current="page">
                   Blog
                 </li>
               </ol>
             </nav>
 
-            <span className="mt-4 inline-block rounded-md bg-white/10 border border-white/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-sky-200">
+            <span className="mt-4 inline-block rounded-md bg-white/10 border border-white/20 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#C79A52]">
               {s.eyebrow}
             </span>
 
-            <h1 className="mt-4 font-display text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="mt-4 font-serif text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
               {s.heading}
             </h1>
 
             {/* Decorative Divider */}
             <div className="mt-5 flex items-center justify-center sm:justify-start gap-3 max-w-xs mx-auto sm:mx-0">
               <span className="h-px flex-1 bg-white/30" />
-              <StarIcon className="h-4 w-4 text-sky-300" />
+              <StarIcon className="h-4 w-4 text-[#C79A52]" />
               <span className="h-px flex-1 bg-white/30" />
             </div>
 
-            <p className="mt-4 max-w-lg text-xs leading-relaxed text-stone-200/90 sm:text-sm">
+            <p className="mt-4 max-w-lg text-xs leading-relaxed text-[#E5D6BE]/90 sm:text-sm">
               {s.subheading}
             </p>
           </div>

@@ -13,18 +13,18 @@ export default async function FeaturedTour() {
   if (!tour) return null;
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200/80 bg-white/95 px-4 py-3 shadow-[0_-8px_25px_rgba(0,0,0,0.12)] backdrop-blur-md sm:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[#E5D6BE] bg-[#F8F3E9]/95 px-4 py-3 shadow-[0_-8px_25px_rgba(0,0,0,0.12)] backdrop-blur-md sm:hidden">
       <div className="flex items-center gap-3">
         <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl">
-          <SafeImage src={tour.image} alt={tour.imageAlt} fill quality={65} sizes="48px" className="object-cover" />
+          <SafeImage src={tour.image} alt={tour.imageAlt} fill quality={75} sizes="48px" className="object-cover" />
         </div>
         <div className="min-w-0 flex-1">
-          <p className="truncate text-xs font-bold leading-tight text-slate-900">{tour.title}</p>
-          <div className="mt-0.5 flex items-center gap-2 text-[11px] text-slate-500">
+          <p className="truncate text-xs font-bold leading-tight text-[#263D2A]">{tour.title}</p>
+          <div className="mt-0.5 flex items-center gap-2 text-[11px] text-[#29302A]/80">
             <StarRating rating={tour.rating} showValue size="xs" />
             <span>·</span>
             <span>
-              from <span className="font-bold text-slate-900">€{tour.price}</span>
+              from <span className="font-bold text-[#C8643F]">€{tour.price}</span>
             </span>
           </div>
         </div>
@@ -32,7 +32,7 @@ export default async function FeaturedTour() {
           href={tour.href}
           target="_blank"
           rel="noopener nofollow sponsored"
-          className="shrink-0 rounded-xl bg-gradient-to-r from-red-600 via-rose-600 to-amber-600 px-4 py-2 text-xs font-bold text-white shadow-md shadow-red-500/20"
+          className="shrink-0 rounded-xl bg-[#263D2A] hover:bg-[#1e3021] px-4 py-2 text-xs font-bold text-white shadow-xs"
         >
           {bookNowText}
         </a>

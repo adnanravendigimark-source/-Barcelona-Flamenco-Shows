@@ -4,16 +4,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import type { NavLink } from "@/lib/homepage";
 
-// Hamburger + slide-down panel for the public header's nav links on small
-// screens. Header.tsx's <nav> is `hidden md:flex` with no mobile fallback,
-// so below the md breakpoint visitors had no way to reach Tours/Blog/
-// About/Contact at all — this is what actually lets them switch pages
-// on mobile.
-//
-// Positioned `absolute top-full` rather than a hardcoded `fixed top-16`
-// so it sits right below the header regardless of the header's actual
-// height — the sticky <header> itself is the nearest positioned
-// ancestor, so this anchors correctly either way.
 export default function MobileNav({
   navLinks,
   ctaText,
@@ -25,7 +15,6 @@ export default function MobileNav({
 }) {
   const [open, setOpen] = useState(false);
 
-  // Lock page scroll while the panel is open, and let Escape close it.
   useEffect(() => {
     if (!open) return;
     const prevOverflow = document.body.style.overflow;
@@ -47,9 +36,9 @@ export default function MobileNav({
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-label={open ? "Close menu" : "Open menu"}
-        className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-stone-200 transition hover:bg-white/10"
+        className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-[#29302A] transition hover:bg-[#E5D6BE]/50"
       >
-        <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" stroke="currentColor" strokeWidth={1.8}>
+        <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" stroke="currentColor" strokeWidth={2}>
           {open ? (
             <path d="M5.5 5.5 18.5 18.5M18.5 5.5 5.5 18.5" strokeLinecap="round" />
           ) : (
@@ -61,30 +50,30 @@ export default function MobileNav({
       {open && (
         <>
           <div
-            className="absolute inset-x-0 top-full z-40 h-screen bg-black/70 backdrop-blur-sm"
+            className="absolute inset-x-0 top-full z-40 h-screen bg-[#29302A]/60 backdrop-blur-sm"
             aria-hidden="true"
             onClick={() => setOpen(false)}
           />
-          <div className="absolute inset-x-0 top-full z-40 max-h-[80vh] overflow-y-auto border-b border-white/10 bg-zinc-950 text-white shadow-2xl">
-            <nav className="flex flex-col px-4 py-3">
+          <div className="absolute inset-x-0 top-full z-40 max-h-[80vh] overflow-y-auto border-b border-[#E5D6BE] bg-[#F8F3E9] text-[#29302A] shadow-2xl">
+            <nav className="flex flex-col px-5 py-3">
               {navLinks.map((link) => (
                 <Link
                   key={link.href + link.label}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="border-b border-white/[0.08] py-3.5 text-base font-semibold text-stone-200 transition hover:text-red-500 last:border-b-0"
+                  className="border-b border-[#E5D6BE]/60 py-3.5 text-base font-semibold text-[#29302A] transition hover:text-[#C8643F] last:border-b-0"
                 >
                   {link.label}
                 </Link>
               ))}
             </nav>
-            <div className="px-4 pb-5 pt-1">
+            <div className="px-5 pb-6 pt-2">
               <Link
-                href={ctaHref}
+                href={ctaHref || "/#tours"}
                 onClick={() => setOpen(false)}
-                className="block rounded-xl bg-[#c23636] hover:bg-[#ad2828] px-5 py-3 text-center text-sm font-bold text-white shadow-md shadow-red-950/40 uppercase tracking-wider"
+                className="block rounded-xl bg-[#263D2A] hover:bg-[#1e3021] px-5 py-3.5 text-center text-sm font-bold text-white shadow-md uppercase tracking-wider"
               >
-                {ctaText}
+                {ctaText || "BOOK TICKETS"}
               </Link>
             </div>
           </div>
