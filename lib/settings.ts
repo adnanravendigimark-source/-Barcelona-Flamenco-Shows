@@ -12,9 +12,9 @@ export interface BlogSeoSettings {
 }
 
 const DEFAULT_SETTINGS: BlogSeoSettings = {
-  metaTitle: "Alhambra Tour Travel Guides & Visitor Tips | Alhambra Tour",
+  metaTitle: "Barcelona Flamenco Show Guides & Tips | Barcelona Flamenco Show",
   metaDescription:
-    "Practical guides for visiting the Alhambra Palace in Granada — Nasrid Palaces tickets, fast-track entry tips, Generalife gardens, and itineraries.",
+    "Practical guides for Barcelona flamenco shows — top tablaos, dinner & tapas packages, best times to book, traditions, and tips.",
   canonicalUrl: "",
   noIndex: false,
   noFollow: false,

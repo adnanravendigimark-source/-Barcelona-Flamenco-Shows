@@ -9,7 +9,7 @@ function gygLink(path: string, extra = "") {
   if (/^https?:\/\//i.test(trimmed)) {
     return `${trimmed}${extra || ""}`;
   }
-  return `https://www.getyourguide.com/${trimmed}?partner_id=${PARTNER_ID}&utm_medium=online_publisher&cmp=alhambra${extra}`;
+  return `https://www.getyourguide.com/${trimmed}?partner_id=${PARTNER_ID}&utm_medium=online_publisher&cmp=barcelona${extra}`;
 }
 
 export type TourType = "guided" | "self-guided" | "combo";

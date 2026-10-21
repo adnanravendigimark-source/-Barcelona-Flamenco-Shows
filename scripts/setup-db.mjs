@@ -475,9 +475,9 @@ async function seedSiteSettings() {
     console.log("site_settings: already configured — skipping seed.");
     return;
   }
-  const blogTitle = "Alhambra Tour Travel Guides & Visitor Tips | Alhambra Tour";
+  const blogTitle = "Barcelona Flamenco Show Guides & Tips | Barcelona Flamenco Show";
   const blogDescription =
-    "Practical guides for visiting the Alhambra Palace in Granada — Nasrid Palaces tickets, fast-track entry tips, Generalife gardens, and itineraries.";
+    "Practical guides for Barcelona flamenco shows — top tablaos, dinner & tapas packages, best times to book, traditions, and tips.";
   await sql`
     INSERT INTO site_settings (id, blog_meta_title, blog_meta_description)
     VALUES (1, ${blogTitle}, ${blogDescription})
@@ -493,37 +493,43 @@ async function seedAboutPage() {
     return;
   }
   const reasons = [
-    { icon: "ShieldCheckIcon", title: "Official Local Guides", body: "Every tour we feature is led by licensed local art historians with expert knowledge of the Alhambra." },
-    { icon: "StarIcon", title: "Guaranteed Nasrid Access", body: "We prioritize experiences with confirmed admission to the Nasrid Palaces, Generalife, and Alcazaba." },
-    { icon: "LockIcon", title: "Transparent Pricing", body: "Clear upfront prices with no hidden booking fees and flexible cancellation options." },
-    { icon: "HeadsetIcon", title: "24/7 Visitor Support", body: "Get responsive support before and during your visit to Granada." },
+    { icon: "ShieldCheckIcon", title: "Master Flamenco Artists", body: "Every venue we list features established national artists, master guitarists, and raw improvisational flamenco." },
+    { icon: "StarIcon", title: "Verified Traveler Reviews", body: "We only feature tablaos with thousands of verified guest reviews and top ratings." },
+    { icon: "LockIcon", title: "Transparent Pricing", body: "The price you see is the full price — clear options for drinks, tapas, or full Spanish dinner." },
+    { icon: "HeadsetIcon", title: "Acoustic & Stage Purity", body: "We tell you exactly what each venue offers — from no-microphone cave acoustics to 19th-century theater halls." },
   ];
   const a = {
     heroEyebrow: "About Us",
-    heroHeading: "Your Independent Guide to Alhambra Guided Tours & Tickets",
+    heroHeading: "Your Independent Guide to Barcelona Flamenco Shows & Tickets",
     heroSubheading:
-      "We help travelers discover authentic Alhambra guided tours, Nasrid Palaces tickets, and Granada experiences — curated from official providers.",
-    heroImage: "/images/hero-alhambra.jpg",
-    heroImageAlt: "Panoramic sunset view of the Alhambra Palace in Granada Spain",
-    introHeading: "Why We Built an Alhambra Tour Guide",
+      "We help travelers discover authentic Barcelona flamenco shows, historic tablaos, and dinner packages — curated from Spain's finest venues and explained in plain language.",
+    heroImage: "/images/hero-flamenco.jpg",
+    heroImageAlt: "Authentic live flamenco performance in Barcelona with passionate dancer and Spanish guitar",
+    introHeading: "Why We Built a Barcelona Flamenco Guide",
     introParagraph1:
-      "Visiting the Alhambra Palace is one of Spain's most incredible travel highlights — but navigating ticket time slots and entrance rules can be tricky.",
+      "Attending an authentic live flamenco performance is one of the most intense, unforgettable cultural moments in Spain — but only if you choose the right venue. Finding genuine masters among dozens of tourist brochures shouldn't be confusing.",
     introParagraph2:
-      "We are an independent Alhambra Tour guide. We compare official guided tours, fast-track tickets, and private experiences so you can book with confidence.",
-    introImage: "/images/nasrid-palaces-alhambra.jpg",
-    introImageAlt: "Moorish arches inside Nasrid Palaces Alhambra",
-    reasonsHeading: "How We Select Our Featured Alhambra Tours",
-    reasonsSubheading: "Every tour option listed on this site is screened against four strict criteria.",
+      "We are an independent Barcelona flamenco guide. We compare world-renowned institutions like Tablao Cordobes, historic theater performances at Teatro City Hall, intimate Gothic Quarter tablaos like Los Tarantos, and full dinner experiences like Tablao de Carmen.",
+    introImage: "/images/spanish-guitar.jpg",
+    introImageAlt: "Spanish guitar and live flamenco performance on stage in Barcelona",
+    reasonsHeading: "How We Select Our Featured Flamenco Shows",
+    reasonsSubheading: "Every tablao listed on this site is screened against four strict criteria before it earns a spot.",
     disclosureHeading: "A Note on How We Earn",
     disclosureBody:
-      "When you book an Alhambra tour through a link on this site, we may earn a small affiliate commission from our ticketing partner at no extra cost to you.",
-    ctaText: "Ready to reserve your Alhambra tour?",
-    ctaButtonLabel: "Compare Alhambra Tours & Tickets",
-    metaTitle: "About Us | Alhambra Tour Guide & Tickets",
+      "When you book a Barcelona flamenco show through a link on this site, we may earn a small affiliate commission from the ticketing partner at no extra cost to you. This is how we keep the site free and independently maintained without banner ads.",
+    ctaText: "Ready to reserve your Barcelona flamenco tickets?",
+    ctaButtonLabel: "Compare Barcelona Flamenco Shows",
+    metaTitle: "About Us | Barcelona Flamenco Show Guide & Tickets",
     metaDescription:
-      "Who curates our Alhambra tour recommendations, how we select official guided tours, and why booking ahead guarantees Nasrid Palaces access.",
+      "Who curates our Barcelona flamenco show recommendations, how we select authentic tablaos, and why booking ahead guarantees prime seating.",
   };
-
+  // The live About page (app/about/page.tsx, via lib/about.ts's getAboutPage)
+  // only reads a single `content` HTML column now — the granular intro_*/
+  // reasons_*/disclosure_* columns above are legacy and unused by current
+  // code, kept only so older rows don't break. Without this, a fresh
+  // database seed would leave about_page.content empty (its NOT NULL
+  // DEFAULT '' — not NULL, so lib/about.ts's `??` fallback never kicks in)
+  // and the About page would render with no body copy at all.
   const content = `<h2>Our Mission</h2>
 <p>${a.introParagraph1}</p>
 <p>${a.introParagraph2}</p>
@@ -562,25 +568,25 @@ async function seedContactPage() {
     return;
   }
   const reasons = [
-    { icon: "HeadsetIcon", title: "Booking Advice", body: "Need advice on guided tours vs. fast-track tickets? Ask us before you book." },
-    { icon: "BriefcaseIcon", title: "Partnerships & Media", body: "Tour operators and travel partners — contact us regarding features or collaborations." },
-    { icon: "MailIcon", title: "General Inquiries", body: "Questions or feedback regarding our Alhambra travel guides." },
+    { icon: "HeadsetIcon", title: "Booking Advice", body: "Need advice on whether to choose an intimate tablao like Cordobes, a historic theater like City Hall, or a dinner show at Tablao de Carmen? Ask us before you book." },
+    { icon: "BriefcaseIcon", title: "Partnerships & Press", body: "Flamenco tablaos, cultural venues, tourism organizations, and affiliate partners — contact us regarding features or collaborations." },
+    { icon: "MailIcon", title: "General Inquiries", body: "Questions, feedback, or content corrections regarding our Barcelona flamenco guides." },
   ];
   const c = {
-    heroEyebrow: "Contact Us",
+    heroEyebrow: "Contact",
     heroHeading: "Get in Touch",
     heroSubheading:
-      "Questions about an Alhambra guided tour, Nasrid Palaces tickets, or visiting Granada? Reach out directly by email.",
+      "Questions about a Barcelona flamenco show, tickets, or venue options — or a partnership inquiry? Reach out directly by email.",
     email: "livetravelpartner@gmail.com",
     emailNote: "We typically reply within 1–2 business days.",
     reasonsHeading: "What we can help with",
     footerNote:
-      "Already have a booking voucher? Please contact your ticketing provider directly via the support link on your confirmation email.",
-    ctaHeading: "Ready to reserve your Alhambra tour?",
-    ctaButtonLabel: "Compare Alhambra Tours & Tickets",
-    metaTitle: "Contact Us | Alhambra Tour Guide",
+      "Already have a booking voucher? Please contact the ticketing provider or venue directly via the details on your confirmation email for immediate schedule adjustments or cancellations.",
+    ctaHeading: "Ready to reserve your seats?",
+    ctaButtonLabel: "Compare Barcelona Flamenco Shows & Tickets",
+    metaTitle: "Contact Us | Barcelona Flamenco Show Guide",
     metaDescription:
-      "Questions about booking an Alhambra tour, Nasrid Palaces tickets, or visiting Granada? Reach out directly to our team.",
+      "Questions about booking an authentic Barcelona flamenco show, dinner package, or tickets online? Reach out directly to our team.",
   };
   await sql`
     INSERT INTO contact_page (
@@ -611,7 +617,7 @@ async function main() {
   await seedSiteSettings();
   await seedAboutPage();
   await seedContactPage();
-  console.log("\nDone. Alhambra Tour database is ready.");
+  console.log("\nDone. Barcelona Flamenco Show database is ready.");
 }
 
 main()

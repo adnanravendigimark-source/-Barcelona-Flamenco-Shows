@@ -27,21 +27,22 @@ const bodyFont = Plus_Jakarta_Sans({
   variable: "--font-body",
 });
 
-const DEFAULT_OG_IMAGE = `${SITE_URL}/images/hero-alhambra.jpg`;
+const DEFAULT_OG_IMAGE =
+  "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=2400&auto=format&fit=crop";
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Alhambra Tour",
+  name: "Barcelona Flamenco Show",
   url: SITE_URL,
   description:
-    "Independent guide comparing official Alhambra guided tours, Nasrid Palaces fast-track entry tickets, and Generalife garden experiences in Granada.",
+    "Independent guide comparing authentic Barcelona flamenco shows, historic tablaos, and tapas dinner packages from licensed venues.",
 };
 
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Alhambra Tour",
+  name: "Barcelona Flamenco Show",
   url: SITE_URL,
 };
 
@@ -51,43 +52,41 @@ export function generateMetadata(): Metadata {
   return {
     metadataBase: new URL(SITE_URL),
     title: {
-      default: "Alhambra Tour — Official Guided Tours & Fast-Track Tickets (2026)",
-      template: "%s | Alhambra Tour",
+      default: "Barcelona Flamenco Show Tickets & Best Tablaos (2026)",
+      template: "%s | Barcelona Flamenco Show",
     },
     description:
-      "Book official Alhambra tours with skip-the-line entry to Nasrid Palaces, Generalife Gardens & Alcazaba in Granada. Instant confirmation & expert local guides.",
+      "Compare authentic Barcelona flamenco shows, historic tablaos on Las Ramblas, and dinner & tapas packages. Instant online booking, free cancellation on most tickets.",
     keywords: [
-      "Alhambra Tour",
-      "Alhambra tickets",
-      "Alhambra Palace",
-      "Alhambra Granada",
-      "Alhambra guided tours",
-      "Alhambra Palace tours",
-      "Nasrid Palaces",
-      "Generalife Gardens",
-      "Alcazaba",
-      "Granada sightseeing",
-      "Alhambra visiting tips",
-      "Alhambra ticket information",
+      "Barcelona Flamenco Show",
+      "Flamenco shows Barcelona",
+      "best flamenco show Barcelona",
+      "Barcelona flamenco tickets",
+      "Tablao Cordobes Barcelona",
+      "Teatro City Hall Flamenco",
+      "Los Tarantos Flamenco",
+      "Tablao de Carmen Barcelona",
+      "Flamenco show with dinner Barcelona",
+      "Gothic Quarter Flamenco",
     ],
     alternates: {
       canonical: "/",
     },
     robots,
     openGraph: {
-      title: "Alhambra Tour — Official Guided Tours & Tickets in Granada",
+      title: "Barcelona Flamenco Show Tickets & Best Tablaos | Live Shows + Dinner",
       description:
-        "Discover the breathtaking Alhambra Palace, Nasrid Palaces, and Generalife Gardens with expert local guides in Granada, Spain.",
+        "Passionate live flamenco performances, historic tablaos, and tapas dinner packages in Barcelona. Compare prices and book online.",
       type: "website",
       url: SITE_URL,
-      siteName: "Alhambra Tour",
-      images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: "Panoramic view of the Alhambra Palace in Granada Spain" }],
+      siteName: "Barcelona Flamenco Show",
+      images: [{ url: DEFAULT_OG_IMAGE, width: 2400, height: 1350, alt: "Passionate flamenco dancer performing live in Barcelona" }],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Alhambra Tour — Official Guided Tours & Tickets in Granada",
+      title: "Barcelona Flamenco Show Tickets & Best Tablaos | Live Shows + Dinner",
       description:
-        "Discover the breathtaking Alhambra Palace, Nasrid Palaces, and Generalife Gardens with expert local guides in Granada, Spain.",
+        "Passionate live flamenco performances, historic tablaos, and tapas dinner packages in Barcelona. Compare prices and book online.",
       images: [DEFAULT_OG_IMAGE],
     },
   };
@@ -118,10 +117,15 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${serifFont.variable} ${displayFont.variable} ${bodyFont.variable}`}>
       <head>
+        {/* Warms up the connection to Google's analytics domains ahead of
+            the afterInteractive gtag.js load below, shaving the DNS/TLS
+            handshake off its actual request instead of paying for it when
+            the script fires. */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        {/* Google tag (gtag.js) */}
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-79QHG880Z2" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
@@ -133,7 +137,7 @@ export default async function RootLayout({
           `}
         </Script>
       </head>
-      <body className="font-body bg-[#F8F3E9] text-[#29302A] antialiased selection:bg-[#263D2A] selection:text-white">
+      <body className="font-body bg-stone-50 text-zinc-900 antialiased selection:bg-red-500 selection:text-white">
         {themeStyle && <style dangerouslySetInnerHTML={{ __html: themeStyle }} />}
         {children}
         <script
