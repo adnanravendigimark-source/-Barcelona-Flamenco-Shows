@@ -1,12 +1,12 @@
-[
-  {
-    "filename": "barcelona-flamenco-show.jpg",
-    "url": "https://jviqolrnn06agn0v.public.blob.vercel-storage.com/uploads/barcelona-flamenco-show-1792565586357-B3xHwPnTqPEf0xbJiK8jNonfKh0k4f.jpg",
-    "sizeBytes": 929218
+{
+  "cover": {
+    "local": "/images/barcelona-flamenco-show-tickets-cover.jpg",
+    "blobUrl": "https://jviqolrnn06agn0v.public.blob.vercel-storage.com/blog/barcelona-flamenco-show-tickets-cover-8BmUixfukAM2lwxHzIv8YXE96Iff1R.jpg",
+    "sizeBytes": 930231
   },
-  {
-    "filename": "barcelona-flamenco-evening-tapas.jpg",
-    "url": "https://jviqolrnn06agn0v.public.blob.vercel-storage.com/uploads/barcelona-flamenco-evening-tapas-1792565586357-rPTpcx8GPNpxE5Ypkw3B2Z9baqzSvB.jpg",
-    "sizeBytes": 916022
+  "inline": {
+    "local": "/images/barcelona-flamenco-dinner-show.jpg",
+    "blobUrl": "https://jviqolrnn06agn0v.public.blob.vercel-storage.com/blog/barcelona-flamenco-dinner-show-PLPI97aETBSSVWuPjEa3h8r62ZPWYm.jpg",
+    "sizeBytes": 927653
   }
-]
+}
